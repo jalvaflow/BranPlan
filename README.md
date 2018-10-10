@@ -1,24 +1,71 @@
-# README
+README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Configuration
 
-Things you may want to cover:
+Ruby 2.5.1
 
-* Ruby version
+Rails 5.2.1
 
-* System dependencies
+For more details, see Gemfile. 
 
-* Configuration
+### System Dependency 
 
-* Database creation
+// TODO 
 
-* Database initialization
+### Install
 
-* How to run the test suite
+Check Ruby version: 
 
-* Services (job queues, cache servers, search engines, etc.)
+	ruby -v
 
-* Deployment instructions
+If it's not 2.5.1 then run:
 
-* ...
+	rbenv install 2.5.1
+
+Install bundler:
+
+	gem install bundler 
+
+Install all packages using bundle:
+
+	gem blundle install
+
+Create and initialize database:
+
+	rails db:create 
+    rails db:seed 
+    rails db:migrate
+ 
+Run the app locally:
+
+	rails server 
+    
+Run the test:
+
+	rails test 
+
+
+
+### Deployment 
+
+// TODO
+
+### Service 
+
+
+// job queues, cache servers, search engines, etc 
+
+
+### Links
+
+[Heorku Link](https://branplan.herokuapp.com/)
+
+[Github Link](https://github.com/JAlva7/branplan)
+
+ 
+ 
+ 
+ 
+
+ 
+ 
