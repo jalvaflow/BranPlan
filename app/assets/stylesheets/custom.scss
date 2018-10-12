@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$navy_blue: #06115d;
 
 /* universal */
 
@@ -43,7 +44,6 @@ p {
   line-height: 1.7em;
 }
 
-
 /* header */
 
 #logo {
@@ -59,23 +59,17 @@ p {
 
 #jumbo {
   border-radius: 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 5px!important;
+  padding: 12px!important;
 }
 
-.slideshow {
-  width:100%;
+.welcome_image {
+  width:99.5%;
   height:380px;
   border-radius:20px;
 }
 
-.w3-animate-fading {
-  opacity: 0.3;
-}
-
 #welcome {
-  background-color: #06115d;
+  background-color: $navy_blue;
   border: 5px solid white;
   color: white;
   border-radius: 20px;
@@ -86,7 +80,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  margin-top: -60px;
+  margin-top: -80px;
   h1 {
     font-size: 50px;
     padding-bottom: 5px;

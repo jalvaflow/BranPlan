@@ -1,22 +1,22 @@
+
 <% content_for :head do %>
 
 <% provide(:title, 'Home') %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <% end %>
 
 <div id="jumbo" class="center jumbotron">
-  <div class="w3-content w3-section center" style="width:100%;">
+  <div class="center" style="width:100%;">
     <div id="welcome">
       <h1>Welcome to BranPlan!</h1>
       <%= link_to "Log In", '#', class: "btn btn-lg btn-info" %>
     </div>
-    <%= image_tag("airview.jpg", :class => "slideshow w3-animate-fading") %>
-    <%= image_tag("library_entrance.jpg", :class => "slideshow w3-animate-fading") %>
-    <%= image_tag("library.jpg", :class => "slideshow w3-animate-fading") %>
+    <%= image_tag("airview.jpg", :class => "welcome_image") %>
   </div>
 </div>
-
+ 
 
 <script>
 var myIndex = 0;
@@ -34,3 +34,4 @@ function carousel() {
     setTimeout(carousel, 10000);
 }
 </script>
+ 
