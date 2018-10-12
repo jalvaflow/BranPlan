@@ -1,5 +1,7 @@
 
 <% content_for :head do %>
+
+<% provide(:title, 'Home') %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,32 +16,22 @@
     <%= image_tag("airview.jpg", :class => "welcome_image") %>
   </div>
 </div>
+ 
 
-<hr>
+<script>
+var myIndex = 0;
+carousel();
 
-<div>
-  <h1 class="center">About</h1>
-  <p class="center">We at BranPlan aim to make academic planning towards degree and univeristy
-    requirements easy for the Brandeis undergradutate community. Once prior
-    coursework and credit status has been added, students are given an array of
-    tools including:</p><br>
-  <ul>
-    <li>Current semester course creation with Google Calendar sync.</li>
-    <li>Dynamic credits and university requirements tracker.</li>
-    <li>Degree progress with graph visualization.</li>
-    <li>Brandeis course catalog database.</li>
-    <li>Course suggestions based on course and viewing history.</li>
-    <li>Note repositories for all currently offered courses.</li>
-    <li>Rating system for courses and notes.</li>
-  </ul>
-</div>
-
-<hr>
-
-<div>
-  <h1 class="center">Contact Us</h1>
-  <p class="center">We take pride in making our service consistently reliable to use. If you
-    notice any issues with our platform or if you have any suggestions,
-    please feel free to reach out to us by submitting a comment
-    <%= link_to "here", '#' %>.</p>
-</div>
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("slideshow");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 10000);
+}
+</script>
+ 
