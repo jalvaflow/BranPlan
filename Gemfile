@@ -7,6 +7,10 @@ gem 'bootstrap-sass', '3.3.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
+# bcrypt for user passwords
+gem 'bcrypt', '3.1.12'
+# Use jquery for some styles
+gem 'jquery-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

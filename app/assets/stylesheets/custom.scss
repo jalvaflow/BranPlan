@@ -6,6 +6,12 @@
 $gray-medium-light: #eaeaea;
 $navy_blue: #06115d;
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 /* universal */
 
 body {
@@ -46,6 +52,24 @@ p {
 
 /* header */
 
+.navbar {
+  background-color: $gray-medium-light;
+}
+
+// .navbar-nav > li > a {
+//     padding-top: 7px;
+//     margin-left: 10px;
+//     padding-bottom: 7px;
+//     border-radius: 7px;
+//     color: $navy_blue;
+//     background-color: white;
+//     border: solid 1px $navy_blue;
+// }
+
+.navbar-nav {
+  padding-top: 7px;
+}
+
 #logo {
   width: 130px;
   height: 100%;
@@ -57,15 +81,10 @@ p {
 
 /* home */
 
-#jumbo {
-  border-radius: 20px;
-  padding: 12px!important;
-}
-
 .welcome_image {
-  width:99.5%;
-  height:380px;
-  border-radius:20px;
+  margin-top: -40px;
+  width:100%;
+  height:420px;
 }
 
 #welcome {
@@ -74,16 +93,15 @@ p {
   color: white;
   border-radius: 20px;
   text-align:center;
-  padding: 25px;
+  padding: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  margin-top: -80px;
+  margin-top: -100px;
   h1 {
     font-size: 50px;
-    padding-bottom: 5px;
   }
 }
 
@@ -111,4 +129,79 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
