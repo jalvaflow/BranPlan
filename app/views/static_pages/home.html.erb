@@ -1,12 +1,41 @@
 <% provide(:title, 'Home') %>
 
+<div style="position:relative;">
 <%= image_tag("airview.jpg", :class => "welcome_image") %>
+<div id="welcome">
+  <h1>Welcome to BranPlan</h1>
+  <p>Academic tracking app for Brandeis University undergraduates</p>
+  <%= link_to "Log In", login_path, class: "btn btn-lg btn-info" %>
+</div>
+</div>
 <div class="container">
-  <div id="welcome">
-    <h1>Welcome to BranPlan</h1>
-    <p>Academic tracking app for Brandeis University undergraduates</p>
-    <%= link_to "Log In", login_path, class: "btn btn-lg btn-info" %>
-  </div>
   <hr>
-  <h1 class="center">Why use BranPlan?</h1>
+  <h1 class="center">Why BranPlan?</h1>
+  <br>
+  <p>At BranPlan, we aim to provide members of the Brandeis undergraduate community an all in one platform for academic planning and progress tracking. We provide
+  a variety of functions for our users, which include but are not limted to:</p>
+  <br>
+  <div class="card-deck">
+  <div class="card">
+    <%= image_tag("schedule-stock.jpg", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Scheduling</h5>
+      <p class="card-text">Create and customize your current semester schedule by selecting courses in our database. You can integrate your schedule directly into your Google Calendar.</p>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag("search-stock.jpg", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Search</h5>
+      <p class="card-text">Browse courses in the Brandeis catalog with our optimized search engine. Discover new courses that you may have never been considered with our personalized suggestion algorithm.</p>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag("progress-stock.png", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Progress</h5>
+      <p class="card-text">Keep track of your academic progress with visualized percentage bars for credit and degree status toward graduation.</p>
+    </div>
+  </div>
+</div>
 <div>

@@ -56,16 +56,6 @@ p {
   background-color: $gray-medium-light;
 }
 
-// .navbar-nav > li > a {
-//     padding-top: 7px;
-//     margin-left: 10px;
-//     padding-bottom: 7px;
-//     border-radius: 7px;
-//     color: $navy_blue;
-//     background-color: white;
-//     border: solid 1px $navy_blue;
-// }
-
 .navbar-nav {
   padding-top: 7px;
 }
@@ -85,24 +75,39 @@ p {
   margin-top: -40px;
   width:100%;
   height:420px;
+  display:block;
 }
 
 #welcome {
+  position: absolute;
   background-color: $navy_blue;
   border: 5px solid white;
   color: white;
   border-radius: 20px;
   text-align:center;
   padding: 20px;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  margin-top: -100px;
   h1 {
     font-size: 50px;
   }
+}
+
+.card-img-top {
+  height: 180px;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 18px;
+  font-style: bold;
+}
+
+.card {
+  border-radius: 30px;
 }
 
 /* footer */
