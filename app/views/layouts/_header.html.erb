@@ -1,53 +1,31 @@
-<!-- <header class="navbar navbar-fixed-top">
-  <div class="container">
-    <%= link_to image_tag("Logo1.png", id: 'logo'), root_path %>
-    <nav>
-      <ul class="nav navbar navbar-right">
-        <li><%= link_to "Help", help_path %></li>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log Out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log In", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header> -->
-
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
     <div class="container">
       <%= link_to image_tag("Logo1.png", id: 'logo'), root_path %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav navbar-right">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to "Dashboard", dashboard_path %></li>
+            <li><%= link_to "Search", '#' %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", '#' %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Log Out", logout_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Log In", login_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
