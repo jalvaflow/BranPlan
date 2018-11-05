@@ -17,3 +17,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+ScrollReveal().reveal('.hideme');

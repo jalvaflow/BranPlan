@@ -1,0 +1,42 @@
+<div id="home-features">
+  <div class="container">
+    <br>
+    <h1 class="center">Why use BranPlan?</h1>
+    <br><br>
+    <div class="row">
+      <div class="column">
+        <%= image_tag("schedule-stock.jpg", :class => "feature-img") %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Scheduling</h5>
+            <p class="card-text">Create and customize your current semester schedule by selecting courses in our database. You can integrate your schedule directly into your Google Calendar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <%= image_tag("search-stock.jpg", :class => "feature-img") %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Search</h5>
+            <p class="card-text">Browse courses in the Brandeis catalog with our optimized search engine. Discover new courses that you may have never been considered with our personalized suggestion algorithm.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <%= image_tag("progress-stock.png", :class => "feature-img") %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Progress</h5>
+            <p class="card-text">Visualize and monitor your academic progress with percentage bars for credit, degree, and university status, including graphs for degree course tracking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+<script>
+  ScrollReveal({duration: 2000})
+  ScrollReveal().reveal('.column', {delay: 200});
+</script>
