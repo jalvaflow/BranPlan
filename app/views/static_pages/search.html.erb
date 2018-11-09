@@ -6,7 +6,9 @@
       <div id="filters" class="jumbotron">
       <%= form_for :anything, url: "" do |form| %>
         <%= text_field_tag :query, nil, placeholder: "Name", :class => "search-inputs" %>
+        <%= text_field_tag :query, nil, placeholder: "Code", :class => "search-inputs" %>
         <%= text_field_tag :professor, nil, placeholder: "Professor(s)", :class => "search-inputs" %>
+        <%= text_field_tag :query, nil, placeholder: "Description", :class => "search-inputs" %>
         <%= select_tag :subject, nil, placeholder: "Subject", :class => "search-inputs" %>
         <%= select_tag :term, nil, placeholder: "Term", :class => "search-inputs" %>
         <%= submit_tag "Search", :id =>  "search-button", :class => "search-inputs btn btn-info"%>
@@ -19,7 +21,7 @@
   </div>
   <div class="search-results col-8">
     <div b="b" m="m" id="results" class="jumbotron">
-      <h3>Results</h3>
+      
     </div>
   </div>
 </div>
