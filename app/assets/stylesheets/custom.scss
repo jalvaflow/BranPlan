@@ -117,7 +117,7 @@ a:link {
 }
 
 .feature-img {
-  height: 220px;
+  height: 200px;
   border-radius: 50%;
   margin-top: -20px;
   margin-bottom: 20px;
@@ -160,7 +160,24 @@ a:link {
 
 #about-us {
   background-color: $navy_blue;
+  border-top: solid 3px white;
+  h1 {
+    font-size: 40px;
+  }
 
+  p {
+    font-size: 20px;
+  }
+
+  h1,
+  p {
+    color: white;
+  }
+}
+
+#our-goal {
+  background-color: #467bad;
+  border-top: solid 3px white;
   h1 {
     font-size: 40px;
   }
@@ -177,41 +194,56 @@ a:link {
 
 #home-features {
   background-color: $cyan;
-
+  border-top: solid 3px white;
   h1 {
     font-size: 40px;
   }
 
   p {
     font-size: 20px;
+    color: $navy_blue;
   }
 
-  h1,
-  p {
-    color: $navy_blue;
+  h1 {
+    color: white;
   }
 }
 
 #contact-us {
   h1 {
     font-size: 40px;
+    color: $navy_blue;
   }
 
   p {
     font-size: 20px;
+    color: $navy_blue;
   }
+}
+
+#carouselQuotes {
+  border-top: solid 3px white;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#061459' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#061459' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 .quote-block {
   width: 200px;
-
   p {
     text-align: center;
     vertical-align: middle;
     line-height: 150px;
   }
 }
+
 /* Dashboard */
+
 .top {
   background-color: $gray-light;
   margin-top: 20px;
@@ -241,15 +273,17 @@ a:link {
 .grow:hover {
   transform: scale(1.1);
 }
+
 /* Search */
+
 .search-filters {
-  background-color: $gray-light;
+  background-color: $navy_blue;
   height: 500px;
   border-radius: 30px 0 0 30px;
 }
 
 .search-results {
-  background-color: $gray-light;
+  background-color: $navy_blue;
   height: 500px;
   border-radius: 0 30px 30px 0;
 }
@@ -257,15 +291,33 @@ a:link {
 #filters {
   margin-top: 15px;
   border-radius: 30px;
+  border: solid 3px white;
   height: 470px;
 }
 
 #results {
   margin-top: 15px;
   border-radius: 30px;
+  border: solid 3px white;
   height: 470px;
 }
+
+.search-inputs {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#search-button {
+  border: solid 2px white;
+}
+
+#suggest-button {
+  border: solid 2px white;
+  width: 100px;
+}
+
 /* footer */
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -295,6 +347,7 @@ footer {
   }
 }
 /* sidebar */
+
 aside {
   section.user_info {
     margin-top: 20px;

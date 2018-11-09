@@ -2,16 +2,25 @@
   <h1 class="center">Search</h1>
   <br>
   <div class="row">
-    <div class="search-filters col-4">
+    <div class="jumbtron search-filters col-4">
       <div id="filters" class="jumbotron">
-        <h3>Filters</h3>
-
-      </div>
-    </div>
-    <div class="search-results col-8">
-      <div  b m id="results" class="jumbotron">
-        <h3>Results</h3>
-      </div>
+      <%= form_for :anything, url: "" do |form| %>
+        <%= text_field_tag :query, nil, placeholder: "Name", :class => "search-inputs" %>
+        <%= text_field_tag :professor, nil, placeholder: "Professor(s)", :class => "search-inputs" %>
+        <%= select_tag :subject, nil, placeholder: "Subject", :class => "search-inputs" %>
+        <%= select_tag :term, nil, placeholder: "Term", :class => "search-inputs" %>
+        <%= submit_tag "Search", :id =>  "search-button", :class => "search-inputs btn btn-info"%>
+        <br><br><br>
+        <div class="center">
+          <%= submit_tag "Suggest", :id =>  "suggest-button", :class => "search-inputs btn btn-success"%>
+        </div>
+      <% end  %>
     </div>
   </div>
+  <div class="search-results col-8">
+    <div b="b" m="m" id="results" class="jumbotron">
+      <h3>Results</h3>
+    </div>
+  </div>
+</div>
 </div>
