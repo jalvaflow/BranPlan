@@ -5,7 +5,10 @@ ruby '2.5.1'
 
 gem 'bootstrap-sass', '3.3.7'
 
-gem 'minitest'
+gem 'pry-byebug'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'minitest-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # bcrypt for user passwords
