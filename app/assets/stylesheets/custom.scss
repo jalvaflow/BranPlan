@@ -50,7 +50,9 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
 /* header */
+
 .navbar-nav > li > a:hover {
   background-color: transparent!important;
 }
@@ -249,9 +251,10 @@ a:link {
   margin-top: 20px;
   border-radius: 40px;
   height: 450px;
-
   h3 {
-    font-size: 25px;
+    font-size: 30px;
+    margin-top: -5px;
+    padding-bottom: 15px;
   }
 }
 
@@ -274,17 +277,76 @@ a:link {
   transform: scale(1.1);
 }
 
+.bar-type {
+  font-size: 14px !important;
+  color: $navy_blue;
+}
+
+.cd-schedule .events .events-group > ul {
+  position: relative;
+  padding: 0 5%;
+  /* force its children to stay on one line */
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cd-schedule .events .single-event {
+  /* force them to stay on one line */
+  flex-shrink: 0;
+  float: left;
+  height: 150px;
+  width: 70%;
+  max-width: 300px;
+}
+
+.cd-schedule .event-modal {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform .4s, visibility .4s;
+}
+
+.cd-schedule.modal-is-open .event-modal {
+  /* .modal-is-open class is added as soon as an event is selected */
+  transform: translateX(0);
+  visibility: visible;
+}
+
+@media only screen and (min-width: 800px) {
+  .cd-schedule .events {
+    float: left;
+    width: 100%;
+  }
+  .cd-schedule .events .events-group {
+    width: 20%;
+    float: left;
+  }
+  .cd-schedule .events .single-event {
+    position: absolute;
+    z-index: 3;
+    /* top position and height will be set using js */
+    width: calc(100% + 2px);
+    left: -1px;
+  }
+}
+
 /* Search */
 
 .search-filters {
   background-color: $navy_blue;
-  height: 500px;
+  height: 600px;
   border-radius: 30px 0 0 30px;
 }
 
 .search-results {
   background-color: $navy_blue;
-  height: 500px;
+  height: 600px;
   border-radius: 0 30px 30px 0;
 }
 
@@ -292,14 +354,14 @@ a:link {
   margin-top: 15px;
   border-radius: 30px;
   border: solid 3px white;
-  height: 470px;
+  height: 570px;
 }
 
 #results {
   margin-top: 15px;
   border-radius: 30px;
   border: solid 3px white;
-  height: 470px;
+  height: 570px;
 }
 
 .search-inputs {
@@ -386,7 +448,9 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
 /* forms */
+
 .uneditable-input,
 input,
 select,
@@ -432,7 +496,9 @@ input {
   width: auto;
   margin-left: 0;
 }
+
 /* miscellaneous */
+
 .debug_dump {
   clear: both;
   float: left;

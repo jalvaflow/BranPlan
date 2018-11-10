@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @credits = current_user.credits.to_s
+    @credits_percent = (((current_user.credits/128.0)*100).round).to_s
   end
 
   def new
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      lash[:success] = "Profile updated"
+      flash[:success] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :credits)
     end
 
     # Confirms a logged-in user.

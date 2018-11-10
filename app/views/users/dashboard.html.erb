@@ -1,15 +1,15 @@
 <div class="container">
-  <h1><%= current_user.name.split(" ")[0] %>'s Dashboard</h1>
+  <h1 class="center"><%= current_user.name.split(" ")[0] %>'s Dashboard</h1>
   <br>
   <div class="row">
     <div class="jumbotron col-md-7 grow top">
       <h3>Schedule</h3>
+      <%= render 'users/dashboard/dashboard_schedule' %>
     </div>
     <div class="jumbotron col-md-4 ml-auto grow top">
-      <h3>Progress<h3>
-    </div>
-    <div class="jumbotron col-md-12 grow bottom">
-      <h3>Degree 1<h3>
-    </div>
-  </div>
-</div>
+      <h3 class="center">Progress<h3>
+          <p class="bar-type">Credits  (<%= @credits %> / 128)</p>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
+          </div>
+        </div>

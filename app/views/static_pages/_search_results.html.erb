@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th class="search_head"> Course </th>
+      <th> Code </th>
+      <th> </th> <!-- For enrollment -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= course.code %></td>
+        <td> <%= link_to("Enroll", enroll_path(:course_id => course.id), :method => :put) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Paginates the multiple rows of the search -->
+<%= will_paginate @courses %>

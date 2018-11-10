@@ -19,6 +19,11 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <br><br>
+
+      <%= f.label :credits, "Credits" %>
+      <%= f.number_field :credits, class: 'form-control' %>
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
