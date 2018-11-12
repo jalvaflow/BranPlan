@@ -11,6 +11,8 @@ course_reqs = []
 course_subjects = [] 
 sections = []
 section_times = []
+section_instructors = []
+# section_time_days = []
 segments = [] 
 
 parsed.each do |line| 
@@ -90,8 +92,8 @@ parsed.each do |line|
             status_text: line["status_text"], #user visable rep of status
             enrolled: line["enrolled"], #integer value that is changed by new students enrolling in this course section
             limit: line["limit"], #integer that relates to enrolled
-            waiting: line["waiting"], #integer related to enrolled
-            instructors: line["instructors"] ############################# Make sure to put "serialize: instructors" in the sections model
+            waiting: line["waiting"] #integer related to enrolled
+            # instructors: line["instructors"] ############################# Make sure to put "serialize: instructors" in the sections model
         }
         line["times"].each do |time|
             section_times << {
@@ -103,9 +105,25 @@ parsed.each do |line|
                 building: time["building"],
                 room: time["room"]
             }
+            # time["days"].each do |day|
+            #     section_time_days << {
+            #         section_id: line["id"],
+            #         type: time["type"],
+            #         start: time["start"], #integer in the closed interval [0, 1440]
+            #         end: time["end"],
+            #         day: day
+            #     }
+            # end
+        end
+        line["instructors"].each do |instructor|
+            section_instructors << {
+                section_id: line["id"],
+                instructor_id: instructor
+            }
         end
     end
 end
+
 
 Requirement.import requirements
 Instructor.import instructors
@@ -116,4 +134,6 @@ CourseRequirement.import course_reqs
 CourseSubject.import courseSubjects
 Section.import sections 
 SectionTime.import section_times
+# SectionDay.import section_time_days
+SectionInstructor.import section_instructors
 Segment.import segments

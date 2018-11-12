@@ -10,10 +10,121 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_182738) do
+ActiveRecord::Schema.define(version: 2018_11_09_232053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "course_requirements", force: :cascade do |t|
+    t.string "course_id"
+    t.string "requirement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "course_subjects", force: :cascade do |t|
+    t.string "course_code"
+    t.string "subject_id"
+    t.integer "segment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "course_id"
+    t.string "comment"
+    t.string "term"
+    t.string "code"
+    t.integer "continuity_id"
+    t.string "name"
+    t.string "description"
+    t.float "credits"
+    t.boolean "independent_study"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.integer "instructor_id"
+    t.string "comment"
+    t.string "email"
+    t.string "first"
+    t.string "middle"
+    t.string "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.string "requirment_id"
+    t.string "comment"
+    t.string "long"
+    t.string "short"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "section_instructors", force: :cascade do |t|
+    t.string "section_id"
+    t.integer "instructor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "section_times", force: :cascade do |t|
+    t.string "section_id"
+    t.integer "start"
+    t.integer "end"
+    t.string "days"
+    t.string "type"
+    t.string "building"
+    t.string "room"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "section_id"
+    t.string "comment"
+    t.string "course"
+    t.integer "section"
+    t.string "details"
+    t.string "status"
+    t.string "status_text"
+    t.integer "enrolled"
+    t.integer "limit"
+    t.integer "waiting"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "segments", force: :cascade do |t|
+    t.integer "segment_id"
+    t.string "subject_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_id"
+    t.string "comment"
+    t.string "term"
+    t.string "name"
+    t.string "abbreviation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "terms", force: :cascade do |t|
+    t.string "term_id"
+    t.string "comment"
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

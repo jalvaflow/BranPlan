@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  resources :section_instructors
+  resources :instructors
+  resources :courses
+  resources :subjects
+  resources :terms
+  resources :section_times
+  resources :sections
+  resources :course_subjects
+  resources :course_requirements
+  resources :segments
+  resources :requirements
   root 'static_pages#home'
 
   get 'help', to: "static_pages#help"
