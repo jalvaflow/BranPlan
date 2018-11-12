@@ -1,0 +1,2 @@
+class SectionInstructor < ApplicationRecord
+end

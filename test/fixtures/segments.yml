@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  segment_id: 1
+  subject_id: MyString
+  name: MyString
+
+two:
+  segment_id: 1
+  subject_id: MyString
+  name: MyString

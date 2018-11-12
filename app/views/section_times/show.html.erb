@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @section_time.section_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @section_time.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @section_time.end %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @section_time.days %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @section_time.type %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @section_time.building %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @section_time.room %>
+</p>
+
+<%= link_to 'Edit', edit_section_time_path(@section_time) %> |
+<%= link_to 'Back', section_times_path %>

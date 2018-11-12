@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section_id: MyString
+  start: 1
+  end: 1
+  days: MyString
+  type: 
+  building: MyString
+  room: MyString
+
+two:
+  section_id: MyString
+  start: 1
+  end: 1
+  days: MyString
+  type: 
+  building: MyString
+  room: MyString
