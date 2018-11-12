@@ -1,7 +1,5 @@
 ######## Join Google group at the beginning of the JSON file so that we can get automatic updates to the table
-
 parsed = JSON.parse(File.read("public/all_data_formatted.JSON"), :quirks_mode => true); 0
-
 requirements = []
 instructors = []
 terms = []
@@ -105,15 +103,6 @@ parsed.each do |line|
                 building: time["building"],
                 room: time["room"]
             }
-            # time["days"].each do |day|
-            #     section_time_days << {
-            #         section_id: line["id"],
-            #         type: time["type"],
-            #         start: time["start"], #integer in the closed interval [0, 1440]
-            #         end: time["end"],
-            #         day: day
-            #     }
-            # end
         end
         line["instructors"].each do |instructor|
             section_instructors << {
@@ -125,14 +114,14 @@ parsed.each do |line|
 end
 
 # debugger
-# Requirement.import requirements
-# Instructor.import instructors
-# Term.import terms
-# Subject.import subjects
+Requirement.import requirements
+Instructor.import instructors
+Term.import terms
+Subject.import subjects
 Course.import courses
-# CourseRequirement.import course_reqs
-# CourseSubject.import courseSubjects
-# Section.import sections 
-# SectionTime.import section_times
-# SectionInstructor.import section_instructors
-# Segment.import segments
+CourseRequirement.import course_reqs
+CourseSubject.import course_subjects
+Section.import sections 
+SectionTime.import section_times
+SectionInstructor.import section_instructors
+Segment.import segments
