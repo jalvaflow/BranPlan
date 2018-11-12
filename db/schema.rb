@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_232053) do
+ActiveRecord::Schema.define(version: 2018_11_12_040506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_232053) do
   end
 
   create_table "instructors", force: :cascade do |t|
-    t.integer "instructor_id"
+    t.string "instructor_id"
     t.string "comment"
     t.string "email"
     t.string "first"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_232053) do
   end
 
   create_table "requirements", force: :cascade do |t|
-    t.string "requirment_id"
+    t.string "requirement_id"
     t.string "comment"
     t.string "long"
     t.string "short"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_232053) do
 
   create_table "section_instructors", force: :cascade do |t|
     t.string "section_id"
-    t.integer "instructor_id"
+    t.string "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

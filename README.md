@@ -1,4 +1,4 @@
-rails g scaffold Requirement requirment_id:string comment:string long:string short:string
+rails g scaffold Requirement requirement_id:string comment:string long:string short:string
 
 rails g scaffold Instructor instructor_id:string comment:string email:string first:string middle:string last:string
 

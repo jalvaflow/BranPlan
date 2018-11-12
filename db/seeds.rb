@@ -1,6 +1,6 @@
 ######## Join Google group at the beginning of the JSON file so that we can get automatic updates to the table
 
-parsed = JSON.parse(File.read("public/all_data.JSON")); 0
+parsed = JSON.parse(File.read("public/all_data_formatted.JSON"), :quirks_mode => true); 0
 
 requirements = []
 instructors = []
@@ -12,7 +12,6 @@ course_subjects = []
 sections = []
 section_times = []
 section_instructors = []
-# section_time_days = []
 segments = [] 
 
 parsed.each do |line| 
@@ -72,6 +71,7 @@ parsed.each do |line|
             course_reqs << {
                 course_id: line["id"],
                 requirement: requirement #string
+                # requirement_id: requirement #string ################################################################################################################################################################################################################################################
             }
         end
         line["subjects"].each do |subject| ##################figure this shit out with subject segments
@@ -124,16 +124,15 @@ parsed.each do |line|
     end
 end
 
-
-Requirement.import requirements
-Instructor.import instructors
-Term.import terms
-Subject.import subjects
+# debugger
+# Requirement.import requirements
+# Instructor.import instructors
+# Term.import terms
+# Subject.import subjects
 Course.import courses
-CourseRequirement.import course_reqs
-CourseSubject.import courseSubjects
-Section.import sections 
-SectionTime.import section_times
-# SectionDay.import section_time_days
-SectionInstructor.import section_instructors
-Segment.import segments
+# CourseRequirement.import course_reqs
+# CourseSubject.import courseSubjects
+# Section.import sections 
+# SectionTime.import section_times
+# SectionInstructor.import section_instructors
+# Segment.import segments

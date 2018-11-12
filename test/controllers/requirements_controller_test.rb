@@ -17,7 +17,7 @@ class RequirementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create requirement" do
     assert_difference('Requirement.count') do
-      post requirements_url, params: { requirement: { comment: @requirement.comment, long: @requirement.long, requirment_id: @requirement.requirment_id, short: @requirement.short } }
+      post requirements_url, params: { requirement: { comment: @requirement.comment, long: @requirement.long, requirement_id: @requirement.requirement_id, short: @requirement.short } }
     end
 
     assert_redirected_to requirement_url(Requirement.last)
@@ -34,7 +34,7 @@ class RequirementsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update requirement" do
-    patch requirement_url(@requirement), params: { requirement: { comment: @requirement.comment, long: @requirement.long, requirment_id: @requirement.requirment_id, short: @requirement.short } }
+    patch requirement_url(@requirement), params: { requirement: { comment: @requirement.comment, long: @requirement.long, requirement_id: @requirement.requirement_id, short: @requirement.short } }
     assert_redirected_to requirement_url(@requirement)
   end
 

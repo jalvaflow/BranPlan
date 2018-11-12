@@ -16,7 +16,7 @@ class RequirementsTest < ApplicationSystemTestCase
 
     fill_in "Comment", with: @requirement.comment
     fill_in "Long", with: @requirement.long
-    fill_in "Requirment", with: @requirement.requirment_id
+    fill_in "Requirement", with: @requirement.requirement_id
     fill_in "Short", with: @requirement.short
     click_on "Create Requirement"
 
@@ -30,7 +30,7 @@ class RequirementsTest < ApplicationSystemTestCase
 
     fill_in "Comment", with: @requirement.comment
     fill_in "Long", with: @requirement.long
-    fill_in "Requirment", with: @requirement.requirment_id
+    fill_in "Requirement", with: @requirement.requirement_id
     fill_in "Short", with: @requirement.short
     click_on "Update Requirement"
 
