@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Requirements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requirement</th>
+      <th>Comment</th>
+      <th>Long</th>
+      <th>Short</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requirements.each do |requirement| %>
+      <tr>
+        <td><%= requirement.requirement_id %></td>
+        <td><%= requirement.comment %></td>
+        <td><%= requirement.long %></td>
+        <td><%= requirement.short %></td>
+        <td><%= link_to 'Show', requirement %></td>
+        <td><%= link_to 'Edit', edit_requirement_path(requirement) %></td>
+        <td><%= link_to 'Destroy', requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requirement', new_requirement_path %>

@@ -5,6 +5,8 @@ ruby '2.5.1'
 
 gem 'bootstrap-sass', '3.3.7'
 
+gem 'activerecord-import'
+
 gem 'pry-byebug'
 gem 'better_errors'
 gem 'binding_of_caller'

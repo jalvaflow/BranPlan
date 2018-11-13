@@ -1,70 +1,34 @@
-# README 
-### Configuration
+Registrar DB Schema
+    Model: Requirement
+            -rails g scaffold Requirement requirement_id:string comment:string long:string short:string
 
-Ruby 2.5.1
+    Model: Instructor
+            -rails g scaffold Instructor instructor_id:string comment:string email:string first:string middle:string last:string
 
-Rails 5.2.1
+    Model: Term
+            -rails g scaffold Term term_id:string comment:string name:string start:date end:date
 
-For more details, see Gemfile. 
+    Model: Segment
+            -rails g scaffold Segment segment_id:integer subject_id:string name:string
 
-### System Dependency 
+    Model: Course
+            -rails g scaffold Course course_id:string comment:string term:string code:string continuity_id:integer name:string description:string credits:float independent_study:boolean
 
-// TODO 
+    Model: Subject
+            -rails g scaffold Subject subject_id:string comment:string term:string name:string abbreviation:string
 
-### Install
+    Model: CourseSubject
+            -rails g scaffold CourseSubject course_code:string subject_id:string segment_id:integer
 
-Check Ruby version: 
+    Model: SectionTime
+            -rails g scaffold SectionTime section_id:string start:integer end:integer days:string type:string building:string room:string
 
-	ruby -v
+    Model: CourseRequirement
+            -rails g scaffold CourseRequirement course_id:string requirement:string
 
-If it's not 2.5.1 then run:
+    Model: SectionInstructor
+            -rails g scaffold SectionInstructor section_id:string instructor_id:string
 
-	rbenv install 2.5.1
-
-Install bundler:
-
-	gem install bundler 
-
-Install all packages using bundle:
-
-	gem blundle install
-
-Create and initialize database:
-
-	rails db:create 
-    rails db:seed 
-    rails db:migrate
- 
-Run the app locally:
-
-	rails server 
-    
-Run the test:
-
-	rails test 
-
-
-
-### Deployment 
-
-// TODO
-
-### Service 
-
-
-// job queues, cache servers, search engines, etc 
-
-
-### Links
-
-[Heorku Link](https://branplan.herokuapp.com/)
-
-[Github Link](https://github.com/JAlva7/branplan)
-
- 
- 
- 
- 
-
- 
- 
+    Model: Section
+         -rails g scaffold Section section_id:string comment:string course:string section:integer details:string status:string status_text:string enrolled:integer limit:integer waiting:integer
+        

@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  resources :sections
+  resources :section_instructors
+  resources :course_requirements
+  resources :section_times
+  resources :course_subjects
+  resources :subjects
+  resources :courses
+  resources :segments
+  resources :terms
+  resources :instructors
+  resources :requirements
   root 'static_pages#home'
 
   get  '/search', to: "static_pages#search"

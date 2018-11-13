@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Comment</th>
+      <th>Course</th>
+      <th>Section</th>
+      <th>Details</th>
+      <th>Status</th>
+      <th>Status text</th>
+      <th>Enrolled</th>
+      <th>Limit</th>
+      <th>Waiting</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.section_id %></td>
+        <td><%= section.comment %></td>
+        <td><%= section.course %></td>
+        <td><%= section.section %></td>
+        <td><%= section.details %></td>
+        <td><%= section.status %></td>
+        <td><%= section.status_text %></td>
+        <td><%= section.enrolled %></td>
+        <td><%= section.limit %></td>
+        <td><%= section.waiting %></td>
+        <td><%= link_to 'Show', section %></td>
+        <td><%= link_to 'Edit', edit_section_path(section) %></td>
+        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Section', new_section_path %>

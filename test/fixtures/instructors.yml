@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instructor_id: MyString
+  comment: MyString
+  email: MyString
+  first: MyString
+  middle: MyString
+  last: MyString
+
+two:
+  instructor_id: MyString
+  comment: MyString
+  email: MyString
+  first: MyString
+  middle: MyString
+  last: MyString

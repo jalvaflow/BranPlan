@@ -1,0 +1,52 @@
+<%= form_with(model: section_time, local: true) do |form| %>
+  <% if section_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(section_time.errors.count, "error") %> prohibited this section_time from being saved:</h2>
+
+      <ul>
+      <% section_time.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :section_id %>
+    <%= form.text_field :section_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.number_field :start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.number_field :end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :days %>
+    <%= form.text_field :days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building %>
+    <%= form.text_field :building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room %>
+    <%= form.text_field :room %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
