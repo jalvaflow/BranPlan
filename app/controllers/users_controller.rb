@@ -7,8 +7,13 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @credits = current_user.credits.to_s
-    @credits_percent = (((current_user.credits/128.0)*100).round).to_s
+    @credits = current_user.credits
+    if @credits.nil?
+      @credits = 0
+      @credits_percent = 0
+    else
+      @credits_percent = (((@credits/128.0)*100).round)
+    end
   end
 
   def new
@@ -49,7 +54,7 @@ class UsersController < ApplicationController
 
     # Confirms a logged-in user.
     def logged_in_user
-      unless logged_in?
+      unless current_user
         store_location
         flash[:danger] = "Please log in."
         redirect_to login_url

@@ -7,22 +7,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
+          <% if current_user %>
             <li class="nav-button"><%= link_to "Dashboard", dashboard_path %></li>
             <li class="nav-button"><%= link_to "Search", search_path %></li>
             <li class="nav-button dropdown">
               <%= link_to "Account", '#', 'data-toggle' => 'dropdown' %>
               <ul class="dropdown-menu">
                 <!-- <li><%= link_to "Profile", current_user %></li> -->
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "Edit Info", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Log Out", logout_path, :method => 'delete' %>
+                  <%= link_to "Sign Out", signout_path, id: "sign_out" %>
                 </li>
               </ul>
             </li>
           <% else %>
-            <li class="nav-button"><%= link_to "Log In", login_path %></li>
+            <li class="nav-button"><%= link_to "Sign In", "/auth/google_oauth2", id: "sign_in" %></li>
           <% end %>
         </ul>
       </div>

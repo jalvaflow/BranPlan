@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
   resources :sections
   resources :section_instructors
   resources :course_requirements
@@ -16,13 +21,6 @@ Rails.application.routes.draw do
   get  '/search', to: "static_pages#search"
 
   get  '/dashboard', to: "users#dashboard"
-
-  get  '/signup',  to: 'users#new'
-  post '/signup',  to: 'users#create'
-
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
 
   resources :users
 
