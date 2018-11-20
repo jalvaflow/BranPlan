@@ -10,12 +10,28 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//=require jquery
-//=require bootstrap
-//=require jquery_ujs
-//= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
 //= require rails-ujs
+//= require turbolinks
 //= require activestorage
 //= require_tree .
+
+$(document).on('turbolinks:load', () => {
+  $('#query').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#code').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#description').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#term').on('change', () => Rails.fire($('#search')[0], 'submit'))
+})
 
 ScrollReveal().reveal('.hideme');
