@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :events
   resources :enrollments
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

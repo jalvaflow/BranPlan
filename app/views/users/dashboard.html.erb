@@ -9,7 +9,7 @@
   <div class="row">
     <div class="jumbotron col-md-7 grow top">
       <h3>Schedule</h3>
-      <%= render 'users/dashboard/dashboard_schedule' %>
+      <div style="height:300px;width:auto;;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="calendar"></div>
     </div>
     <div class="jumbotron col-md-4 ml-auto grow top">
       <h3 class="center">Progress<h3>
@@ -18,3 +18,7 @@
             <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
           </div>
         </div>
+
+<script>
+  $('#calendar').fullCalendar({});
+</script>
