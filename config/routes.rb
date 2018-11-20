@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :enrollments
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
   get  '/search', to: "static_pages#search"
 
   get  '/dashboard', to: "users#dashboard"
+
+  put    'enroll', to: 'enrollments#enroll'
+  put    '/unenroll', to: 'enrollments#unenroll'
 
   resources :users
 

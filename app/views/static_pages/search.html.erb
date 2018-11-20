@@ -1,27 +1,42 @@
-<div class="container">
-  <br>
+<% provide(:title, "Search") %>
+
+<div class="search-page">
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+  <% end %>
   <div class="row">
-    <div class="jumbtron search-filters col-4">
+    <div class="col-4">
       <div id="filters" class="jumbotron">
-      <%= form_for :anything, url: "" do |form| %>
-        <%= text_field_tag :query, nil, placeholder: "Name", :class => "search-inputs" %>
-        <%= text_field_tag :query, nil, placeholder: "Code", :class => "search-inputs" %>
-        <%= text_field_tag :professor, nil, placeholder: "Professor(s)", :class => "search-inputs" %>
-        <%= text_field_tag :query, nil, placeholder: "Description", :class => "search-inputs" %>
-        <%= select_tag :subject, nil, placeholder: "Subject", :class => "search-inputs" %>
-        <%= select_tag :term, nil, placeholder: "Term", :class => "search-inputs" %>
-        <%= submit_tag "Search", :id =>  "search-button", :class => "search-inputs btn btn-info"%>
-        <br><br><br>
+        <%= form_tag(search_path, method: :get, :id => "search", remote: true) do %>
+          <%= text_field_tag :query, params[:name], placeholder: "Name", :class => "search-inputs" %>
+          <%= text_field_tag :code, params[:code], placeholder: "Code", :class => "search-inputs" %>
+          <%= text_field_tag :professor, params[:professor], placeholder: "Professor", :class => "search-inputs" %>
+          <%= text_field_tag :description, params[:description], placeholder: "Description", :class => "search-inputs" %>
+          <%= select_tag :subject, options_for_select(@subjects.collect { |subject|
+              subject.name}), :include_blank => "Any", id: 'subject_select', class: 'search-inputs' %>
+          <%= select_tag :term, options_for_select(@terms.collect { |term|
+              term.name}), :include_blank => "Any", id: 'term_select', class: 'search-inputs' %>
+          <%= submit_tag "Search", :id => 'search-button', :class => 'btn btn-info', :style => "display: none;" %>
+        <% end %>
         <div class="center">
-          <%= submit_tag "Suggest", :id =>  "suggest-button", :class => "search-inputs btn btn-success"%>
+          <%= submit_tag "Suggest", :id => 'suggest-button', :class => "search-inputs btn btn-warning" %>
         </div>
-      <% end  %>
     </div>
   </div>
-  <div class="search-results col-8">
-    <div b="b" m="m" id="results" class="jumbotron">
-      <%#= render 'search_results' %>
-    </div>
+  <div class="col-8">
+    <div id="search_results" class="jumbotron"><%= render 'search_results' %></div>
   </div>
 </div>
 </div>
+
+<script>
+$(function() {
+  $("#search").keyup(function() {
+    $.get(this.action, $(this).serialize(), null, "script");
+  });
+
+  $("#search").change(function() {
+    $.get(this.action, $(this).serialize(), null, "script");
+  });
+});
+</script>

@@ -1,20 +1,23 @@
-<table>
-  <thead>
-    <tr>
-      <th class="search_head"> Course </th>
-      <th> Code </th>
-      <th> </th> <!-- For enrollment -->
-    </tr>
-  </thead>
+<table id="course-results" class="table table-striped">
   <tbody>
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
         <td><%= course.code %></td>
-        <td> <%= link_to("Enroll", enroll_path(:course_id => course.id), :method => :put) %></td>
+        <div>
+          <% if Enrollment.where(user_id: current_user.id, course_id: course.id).length == 0 %>
+            <td>
+              <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => course.id), :method => :put) %>
+            </td>
+          <% else %>
+            <td>
+              <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => course.id), :method => :put) %>
+            </td>
+          <% end %>
+        </div>
       </tr>
     <% end %>
   </tbody>
 </table>
 <!-- Paginates the multiple rows of the search -->
-<%= will_paginate @courses %>
+<%= will_paginate @courses, class: "center paginate-bar" %>

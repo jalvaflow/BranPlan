@@ -1,0 +1,22 @@
+<div>
+      <br>
+      <table class="table">
+        <thead id="thead">
+          <tr>
+            <th style="padding-right: 10px;">Course</th>
+            <th style="padding-right: 50px;">Code</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @courses.each do |course| %>
+            <tr>
+              <td><%= course.name %></td>
+              <td><%= course.code %></td>
+              <td><%= link_to "Remove", unenroll_path(:course_id => course.id), :method => :put %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>

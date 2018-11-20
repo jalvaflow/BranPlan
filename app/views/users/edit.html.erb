@@ -7,10 +7,9 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :credits, "Credits" %>
-      <%= f.number_field :credits, class: 'form-control' %>
+      <%= f.label :credits, "University Credits" %>
+      <%= f.number_field :credits, class: 'form-control', onchange: 'this.form.submit();' %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
   </div>

@@ -338,44 +338,85 @@ a:link {
 
 /* Search */
 
-.search-filters {
-  background-color: $navy_blue;
-  height: 600px;
-  border-radius: 30px 0 0 30px;
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
 }
 
-.search-results {
+.search-page {
   background-color: $navy_blue;
-  height: 600px;
-  border-radius: 0 30px 30px 0;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #filters {
-  margin-top: 15px;
+  margin-left:20px;
   border-radius: 30px;
-  border: solid 3px white;
-  height: 570px;
+  border: solid 5px white;
+  height: 100%;
 }
 
-#results {
-  margin-top: 15px;
+#search_results {
+  margin-right:20px;
   border-radius: 30px;
-  border: solid 3px white;
-  height: 570px;
+  margin-bottom: -40px;
+  border: solid 5px white;
+  height: 100%;
 }
 
 .search-inputs {
   border-radius: 10px;
   padding: 5px;
+  margin-bottom: 30px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 2pt $cyan;
 }
 
 #search-button {
   border: solid 2px white;
+  border-radius: 9px;
 }
 
 #suggest-button {
   border: solid 2px white;
   width: 100px;
+}
+
+#course-results {
+  margin-top: -25px;
+  margin-bottom: -20px;
+  td {
+    padding-bottom: 5px;
+    padding-right: 50px;
+    font-size: 14px;
+  }
+}
+
+.paginate-bar {
+  margin-top: 20px;
+}
+
+.enroll-button {
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 80px;
+  a {
+    color: white;
+  }
 }
 
 /* footer */

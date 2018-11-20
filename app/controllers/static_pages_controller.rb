@@ -15,4 +15,20 @@ class StaticPagesController < ApplicationController
   def help
   end
 
+  def search
+    @subjects = Subject.order(:name).uniq{|subject| subject.name}
+    @terms = Term.order(:name)
+    @courses = Course.where(term: "1181").order(:code)
+    # EDIT FOR ALL FIELDS
+    if !params[:query].nil? || !params[:code].nil? || !params[:description].nil?
+      @query = params[:query].downcase unless params[:query] == ""
+      @code = params[:code].upcase unless params[:code] == ""
+      @description = params[:description].downcase unless params[:description] == ""
+      @courses = Course.where("lower(name) LIKE ? AND code LIKE ? AND description LIKE ?", "%#{@query}%", "%#{@code}%", "%#{@description}%").order(:code)
+    end
+    # Saves uniq course by code and paginates.
+    @courses = @courses.uniq { |x| x[:code] }
+    @courses = @courses.paginate(:per_page => 15, page: params[:page])
+  end
+  
 end

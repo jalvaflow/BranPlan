@@ -7,6 +7,19 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    if (current_user)
+      enrollment = Enrollment.where(user_id: current_user.id)
+      @courses = []
+      if enrollment.count != 0
+        enrollment.each do |e|
+          course = Course.find(e.course_id)
+          @courses.push(course)
+        end
+      end
+    else
+      redirect_to root_url
+    end
+
     @credits = current_user.credits
     if @credits.nil?
       @credits = 0
@@ -38,8 +51,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to @user
     else
       render 'edit'
     end
