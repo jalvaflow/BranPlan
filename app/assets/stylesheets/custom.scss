@@ -212,19 +212,34 @@ a:link {
 }
 
 #contact-us {
+  margin-top: -15px;
   h1 {
     font-size: 40px;
     color: $navy_blue;
   }
-
+  h5 {
+    font-size: 25px;
+    color: white;
+    margin-top: -15px;
+  }
   p {
     font-size: 20px;
     color: $navy_blue;
+  }
+  #feedback-form {
+    background-color: $cyan;
+    #send-button {
+      border: solid 2px white;
+      border-radius: 9px;
+      width: 100px !important;
+      margin-bottom: -20px;
+    }
   }
 }
 
 #carouselQuotes {
   border-top: solid 3px white;
+  margin-bottom: -20px;
 }
 
 .carousel-control-prev-icon {

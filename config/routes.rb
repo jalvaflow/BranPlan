@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get  '/search', to: "static_pages#search"
 
+  get  '/contact', to: "messages#new"
+  post  '/contact', to: 'messages#create'
+
   get  '/dashboard', to: "users#dashboard"
 
   put    'enroll', to: 'enrollments#enroll'

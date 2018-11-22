@@ -10,16 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-<<<<<<< HEAD
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-=======
-//=require jquery
-//=require jquery_ujs
-//=require bootstrap
-//= require turbolinks
->>>>>>> 53132bd0914ad38e34c37220370ace861322d5bb
 //= require rails-ujs
 //= require turbolinks
 //= require activestorage
@@ -47,7 +40,7 @@ $(document).on('turbolinks:load', () => {
 ScrollReveal().reveal('.hideme');
 
 // $('#calendar').fullCalendar();
-// 
+//
 //
 // $(document).ready(function(){
 //   var initialize_calendar;
