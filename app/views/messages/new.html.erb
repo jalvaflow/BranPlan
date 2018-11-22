@@ -1,7 +1,4 @@
 <div id="contact-us">
-  <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
-  <% end %>
   <div class="container">
     <br>
     <h1 class="center">Contact Us</h1>
@@ -15,11 +12,12 @@
     <br><br>
     <div id="feedback-form" class="jumbotron col-md-10 offset-1">
       <h5>Feedback Form</h5>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+      <% end %>
       <hr>
       <br>
       <%= form_for @message, url: contact_path do |f| %>
-        <%= notice %>
-        <%= @message.errors.full_messages.join(', ') %>
         <%= f.text_field :name, placeholder: 'Name', class: "search-inputs" %>
         <%= f.email_field :email, placeholder: 'Email', class: "search-inputs" %>
         <%= f.text_area :body, placeholder: 'Message', class: "search-inputs", rows: "5" %>

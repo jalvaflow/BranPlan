@@ -10,6 +10,7 @@
           <% if current_user %>
             <li class="nav-button"><%= link_to "Dashboard", dashboard_path %></li>
             <li class="nav-button"><%= link_to "Search", search_path %></li>
+            <li class="nav-button"><%= link_to "Contact", contact_path, id: "contact" %></li>
             <li class="nav-button dropdown">
               <%= link_to "Account", '#', 'data-toggle' => 'dropdown' %>
               <ul class="dropdown-menu">
@@ -22,8 +23,8 @@
               </ul>
             </li>
           <% else %>
-            <li class="nav-button"><%= link_to "Contact Us", contact_path, id: "contact" %></li>
-            <li class="nav-button"><%= link_to "Sign In", "/auth/google_oauth2", id: "sign_in" %></li>
+            <li class="nav-button"><%= link_to "Contact", contact_path, id: "contact" %></li>
+            <li class="nav-button"><%= link_to "Sign In", "/auth/google", id: "sign_in" %></li>
           <% end %>
         </ul>
       </div>
