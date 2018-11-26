@@ -7,7 +7,8 @@ class MessageMailer < ApplicationMailer
   #
   def contact(message)
     @body = message.body
-    mail to: "branplan2018@gmail.com", from: message.email
+    @name = message.name
+    mail to: "branplan2018@gmail.com", subject: "BranPlan Client Feedback", from: message.email
   end
 
 end

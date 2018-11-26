@@ -2,19 +2,8 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.name %></td>
+        <td><%= link_to course.name, course %></td>
         <td><%= course.code %></td>
-        <div>
-          <% if Enrollment.where(user_id: current_user.id, course_id: course.id).length == 0 %>
-            <td>
-              <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => course.id), :method => :put) %>
-            </td>
-          <% else %>
-            <td>
-              <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => course.id), :method => :put) %>
-            </td>
-          <% end %>
-        </div>
       </tr>
     <% end %>
   </tbody>

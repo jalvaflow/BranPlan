@@ -8,12 +8,20 @@ class UsersController < ApplicationController
 
   def dashboard
     if (current_user)
-      enrollment = Enrollment.where(user_id: current_user.id)
-      @courses = []
-      if enrollment.count != 0
-        enrollment.each do |e|
+      enrollment_fall_2018 = Enrollment.where(user_id: current_user.id, term_id: 4)
+      enrollment_spring_2019 = Enrollment.where(user_id: current_user.id, term_id: 5)
+      @courses_fall_2018 = []
+      @courses_spring_2019 = []
+      if enrollment_fall_2018.count != 0
+        enrollment_fall_2018.each do |e|
           course = Course.find(e.course_id)
-          @courses.push(course)
+          @courses_fall_2018.push(course)
+        end
+      end
+      if enrollment_spring_2019.count != 0
+        enrollment_spring_2019.each do |e|
+          course = Course.find(e.course_id)
+          @courses_spring_2019.push(course)
         end
       end
     else

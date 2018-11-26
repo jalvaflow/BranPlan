@@ -212,7 +212,6 @@ a:link {
 }
 
 #contact-us {
-  margin-top: -15px;
   h1 {
     font-size: 40px;
     color: $navy_blue;
@@ -225,6 +224,9 @@ a:link {
   p {
     font-size: 20px;
     color: $navy_blue;
+  }
+  #contact-jumbo {
+    background-color: $gray-light;
   }
   #feedback-form {
     background-color: $cyan;
@@ -261,26 +263,21 @@ a:link {
 
 /* Dashboard */
 
-.top {
+#calendar {
+  h2 {
+    color: black;
+  }
+}
+
+.dash-panels {
   background-color: $gray-light;
   margin-top: 20px;
   border-radius: 40px;
-  height: 450px;
+  height: 500px;
   h3 {
     font-size: 30px;
     margin-top: -5px;
     padding-bottom: 15px;
-  }
-}
-
-.bottom {
-  background-color: $gray-light;
-  margin-top: 30px;
-  border-radius: 40px;
-  height: 300px;
-
-  h3 {
-    font-size: 25px;
   }
 }
 
@@ -434,6 +431,21 @@ input:focus {
   }
 }
 
+#course-page {
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #section-info {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.breadcrumb-item {
+  color: #457ab2 !important;
+}
+
 /* footer */
 
 footer {
@@ -523,10 +535,9 @@ input {
 
 #error_explanation {
   color: red;
-
   ul {
     color: red;
-    margin: 0 0 30px;
+    margin: 0 0 30 -15px;
   }
 }
 

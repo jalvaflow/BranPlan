@@ -1,49 +1,50 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @course.code) %>
 
-<p>
-  <strong>Course:</strong>
-  <%= @course.course_id %>
-</p>
+  <div id="course-page" class="container">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+    <% end %>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Brandeis University</li>
+        <li class="breadcrumb-item active"><%= Term.find_by(term_id: @course.term).name %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @course.name %> (<%= @course.code %>)</li>
+      </ol>
+    </nav>
+    <h1>
+      <%= @course.name %>
+      •
+      <%= @course.code %>
+    </h1>
+    <br>
+    <p style="margin-bottom: -10px;">
+      <%= @course.description %>
+    </p>
+    <%# If Fall 2018 or Spring 2019 course, able to enroll %>
+    <% if @term.id == 4 or @term.id == 5 %>
+      <p>
+        <% @sections.order(:section).each do |section| %>
+          <br>
+          <p id="section-info">
+            Section
+            <%= section.section %></p>
+          <div style="margin-left: 10px;">
+            <p>Instructor(s):
+              <%= @professors[section.section] %></p>
+            <p>
+              <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
+                <td>
+                  <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
+                </td>
+              <% else %>
+                <td>
+                  <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
+                </td>
+              <% end %>
+            </div>
+          <% end %>
+        </p>
+      <% else %>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @course.comment %>
-</p>
-
-<p>
-  <strong>Term:</strong>
-  <%= @course.term %>
-</p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @course.code %>
-</p>
-
-<p>
-  <strong>Continuity:</strong>
-  <%= @course.continuity_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-
-<p>
-  <strong>Credits:</strong>
-  <%= @course.credits %>
-</p>
-
-<p>
-  <strong>Independent study:</strong>
-  <%= @course.independent_study %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+      <% end %>
+    </div>

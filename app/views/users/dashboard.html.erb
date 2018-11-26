@@ -1,24 +1,48 @@
 <% provide(:title, current_user.name.split(" ")[0].to_s+"'s Dashboard") %>
 
-<div class="container">
-  <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
-  <% end %>
-  <h1 class="center"><%= current_user.name.split(" ")[0] %>'s Dashboard</h1>
-  <br>
-  <div class="row">
-    <div class="jumbotron col-md-7 grow top">
-      <h3>Schedule</h3>
-      <div style="height:300px;width:auto;;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="calendar"></div>
-    </div>
-    <div class="jumbotron col-md-4 ml-auto grow top">
-      <h3 class="center">Progress<h3>
-          <p class="bar-type">Credits  (<%= @credits %> / 128)</p>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
+  <div class="container">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+    <% end %>
+    <h1 class="center"><%= current_user.name.split(" ")[0] %>'s Dashboard</h1>
+    <br>
+    <div class="row">
+      <div class="jumbotron col-md-7 grow dash-panels">
+
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a data-toggle="tab" href="#home">Calendar</a>
+          </li>
+          <li>
+            <a data-toggle="tab" href="#menu1">Fall 2018</a>
+          </li>
+          <li>
+            <a data-toggle="tab" href="#menu2">Spring 2018</a>
+          </li>
+        </ul>
+        <br>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <div style="height:370px;width:auto;font-size:16px/26px;overflow:auto;" id="calendar"></div>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <%= render 'users/dashboard/dashboard_fall_2018' %>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <%= render 'users/dashboard/dashboard_spring_2019' %>
           </div>
         </div>
 
-<script>
-  $('#calendar').fullCalendar({});
-</script>
+      </div>
+      <div class="jumbotron col-md-4 ml-auto grow dash-panels">
+        <h3 class="center">Progress<h3>
+            <p class="bar-type">Credits (<%= @credits %>
+              / 128)</p>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
+            </div>
+          </div>
+
+          <script>
+            $('#calendar').fullCalendar({});
+          </script>

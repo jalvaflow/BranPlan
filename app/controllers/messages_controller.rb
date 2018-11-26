@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
       redirect_to contact_path
       flash[:success] = "Message recieved. Thank you for your feedback!"
     else
-      flash[:danger] = "At least one of the fields was not entered. Please try again."
       render :new
     end
   end

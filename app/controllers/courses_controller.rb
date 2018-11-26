@@ -10,6 +10,18 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:id])
+    @sections = Section.where(course: @course.course_id)
+    @term = Term.find_by(term_id: @course.term)
+    @professors = {}
+    # @days = {}
+    @sections.each do |section|
+      instructor_id = SectionInstructor.find_by(section_id: section.section_id).instructor_id
+      instructor = Instructor.find_by(instructor_id: instructor_id)
+      @professors[section.section] = instructor.first+" "+instructor.last
+      # days = SectionTime.find_by(section_id: section.section_id).days
+      # @days[section.section] = days
+    end
   end
 
   # GET /courses/new

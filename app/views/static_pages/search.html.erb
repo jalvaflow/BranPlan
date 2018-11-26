@@ -15,7 +15,7 @@
           <%= select_tag :subject, options_for_select(@subjects.collect { |subject|
               subject.name}), :include_blank => "Any", class: 'search-inputs' %>
           <%= select_tag :term, options_for_select(@terms.collect { |term|
-              term.name}), :include_blank => "Any", class: 'search-inputs' %>
+              term.name}, "Fall 2018"), class: 'search-inputs' %>
           <%= submit_tag "Search", :id => 'search-button', :class => 'btn btn-info', :style => "display: none;" %>
         <% end %>
         <div class="center">
