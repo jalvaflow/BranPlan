@@ -1,5 +1,4 @@
 <% provide(:title, "Edit user") %>
-<div class="container">
 <h1 class="center">Academic Information</h1>
 <br>
 <div class="row">
@@ -11,7 +10,22 @@
       <%= f.number_field :credits, class: 'form-control', onchange: 'this.form.submit();' %>
 
     <% end %>
-
+    <br>
+    <label>Course History</label>
+    <div id="course_history"><%= render 'users/edit/course_history' %></div>
+    <%= form_tag(edit_path, method: :get, :id => "history", remote: true) do %>
+      <%= text_field_tag :history_code, params[:history_code], placeholder: "Code", :class => "search-inputs" %>
+      <%= submit_tag "Search", :id => 'code-search', :class => 'btn btn-info', :style => "display: none;" %>
+    <% end %>
+    <div id="history_results"><%= render 'users/edit/history_results' %></div>
   </div>
 </div>
-</div>
+
+<script>
+$(document).on('turbolinks:load', () => {
+  // Course history
+  $('#history_code').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#history')[0], 'submit')
+  })
+})
+</script>

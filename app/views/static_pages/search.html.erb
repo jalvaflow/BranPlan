@@ -28,3 +28,22 @@
   </div>
 </div>
 </div>
+
+<script>
+$(document).on('turbolinks:load', () => {
+  // Search form
+  $('#query').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#code').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#description').on('input', function() {
+    if (this.value.length >= 0) Rails.fire($('#search')[0], 'submit')
+  })
+
+  $('#term').on('change', () => Rails.fire($('#search')[0], 'submit'))
+})
+</script>

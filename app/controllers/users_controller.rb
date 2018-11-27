@@ -54,6 +54,33 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    @course_codes = nil
+
+    @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)
+    @course_history = @course_history.map {|x| x.course_code}
+
+    if !params[:history_code].nil?
+      debugger
+      @course_codes = Course.order(:code).uniq {|x| x.code}
+      @course_codes = @course_codes.map { |x| x.code }
+      @code = params[:history_code].upcase unless params[:history_code] == ""
+      search_results = []
+      @course_codes.each do |code|
+        if code.include? @code
+          search_results.push(code)
+        end
+      end
+      @course_codes = search_results
+      puts @course_codes
+    end
+
+    # @degrees = UserDegree.where(user_id: @user_id)
+
+    if !@course_codes.nil?
+      @course_codes = @course_codes - @course_history
+      @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
+    end
   end
 
   def update

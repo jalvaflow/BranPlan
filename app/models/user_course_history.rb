@@ -1,0 +1,2 @@
+class UserCourseHistory < ApplicationRecord
+end

@@ -27,8 +27,13 @@ Rails.application.routes.draw do
 
   get  '/dashboard', to: "users#dashboard"
 
-  put    'enroll', to: 'enrollments#enroll'
+  put    '/enroll', to: 'enrollments#enroll'
   put    '/unenroll', to: 'enrollments#unenroll'
+
+  put    '/add_course', to: 'user_course_history#add_course'
+  put    '/remove_course', to: 'user_course_history#remove_course'
+
+  get  '/edit', to: "users#edit"
 
   resources :users
 
