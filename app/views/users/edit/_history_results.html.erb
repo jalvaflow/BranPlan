@@ -1,17 +1,16 @@
 <% if !@course_codes.nil? %>
-  <table id="history-results" class="table table-striped">
-    <tbody>
-      <% @course_codes.each do |code| %>
-        <tr>
-          <td><%= code %></td>
-          <td>
-            <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, add_course_path(:course_code => code), :method => :put) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-<!-- Paginates the multiple rows of the search -->
-<%= will_paginate @course_codes, class: "center paginate-bar" %>
+  <div id="histroy-results-jumbo" class="jumbotron">
+      <table id="history-results" class="table table-striped">
+        <tbody>
+          <% @course_codes.each do |code| %>
+            <tr>
+              <td><%= code %></td>
+              <td>
+                <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, add_course_path(:course_code => code), :method => :put) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
 <% end %>

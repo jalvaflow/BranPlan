@@ -53,6 +53,11 @@ p {
 
 /* header */
 
+.dropdown-menu {
+  border-radius: 10px !important;
+  margin-top: 10px !important;
+}
+
 .navbar-nav > li > a {
   padding: 8px !important;
 }
@@ -448,6 +453,30 @@ input:focus {
 
 .breadcrumb-item {
   color: #457ab2 !important;
+}
+
+#histroy-results-jumbo {
+  border-radius: 20px;
+}
+
+#history-results {
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.pagination {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.pagination>li>a {
+  background-color: white !important;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.pagination>li.active>a {
+  background-color: $navy_blue !important;
 }
 
 /* footer */
