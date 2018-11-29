@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def multiselect
+  end
+
   def dashboard
     if (current_user)
       enrollment_fall_2018 = Enrollment.where(user_id: current_user.id, term_id: 4)
@@ -55,13 +58,14 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
 
+    @subjects = Subject.order(:name).uniq{|subject| subject.name}
+
     @course_codes = nil
 
     @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)
     @course_history = @course_history.map {|x| x.course_code}
 
     if !params[:history_code].nil?
-      debugger
       @course_codes = Course.order(:code).uniq {|x| x.code}
       @course_codes = @course_codes.map { |x| x.code }
       @code = params[:history_code].upcase unless params[:history_code] == ""
@@ -72,7 +76,6 @@ class UsersController < ApplicationController
         end
       end
       @course_codes = search_results
-      puts @course_codes
     end
 
     # @degrees = UserDegree.where(user_id: @user_id)

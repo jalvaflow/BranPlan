@@ -53,6 +53,10 @@ p {
 
 /* header */
 
+.navbar-nav > li > a {
+  padding: 8px !important;
+}
+
 .navbar-nav > li > a:hover {
   background-color: transparent!important;
 }

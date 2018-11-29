@@ -1,19 +1,28 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "Academic Info") %>
+<% flash.each do |message_type, message| %>
+  <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+<% end %>
 <h1 class="center">Academic Information</h1>
 <br>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user, :html => {:id => "credits-form"}, remote: true do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :credits, "University Credits" %>
-      <%= f.number_field :credits, class: 'form-control', onchange: 'this.form.submit();' %>
-
+      <%= f.label :credits, "University Credits", :style => "padding-bottom: 10px;" %>
+      <%= f.number_field :credits, class: 'search-inputs' %>
+      <%= f.submit "Submit", :style => "display:none;" %>
+    <% end %>
+    <label style="padding-bottom: 10px;">Degrees</label>
+    <%= form_tag("", method: :get, :id => "degree-search", remote: true) do %>
+      <%= select_tag :degrees, options_for_select(@subjects.map { |subject|
+          subject.name}), id: "degrees", multiple: "multiple"  %>
     <% end %>
     <br>
     <label>Course History</label>
     <div id="course_history"><%= render 'users/edit/course_history' %></div>
     <%= form_tag(edit_path, method: :get, :id => "history", remote: true) do %>
+      <%= hidden_field_tag :id, current_user.id %>
       <%= text_field_tag :history_code, params[:history_code], placeholder: "Code", :class => "search-inputs" %>
       <%= submit_tag "Search", :id => 'code-search', :class => 'btn btn-info', :style => "display: none;" %>
     <% end %>
@@ -23,9 +32,19 @@
 
 <script>
 $(document).on('turbolinks:load', () => {
+  // Credits form
+  $('#user_credits').on('change', () => Rails.fire($('#credits-form')[0], 'submit'))
   // Course history
   $('#history_code').on('input', function() {
     if (this.value.length >= 0) Rails.fire($('#history')[0], 'submit')
   })
-})
+});
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#degrees').multiselect({
+            includeSelectAllOption: true
+        });
+    });
 </script>
