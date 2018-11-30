@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   def search
     @subjects = Subject.order(:name).uniq{|subject| subject.name}
     @terms = Term.order(:name)
-    @courses = Course.where(term: "1183").order(:code)
+    @courses = Course.where(term: "1183")
     # EDIT FOR ALL FIELDS
     if !params[:query].nil? || !params[:code].nil? || !params[:description].nil?
       @query = params[:query].downcase unless params[:query] == ""
@@ -25,11 +25,10 @@ class StaticPagesController < ApplicationController
       if params[:term] != 'Any'
         @term = Term.where(name: params[:term])[0][:term_id]
       end
-      @courses = Course.where("lower(name) LIKE ? AND code LIKE ? AND description LIKE ? AND term LIKE ?", "%#{@query}%", "%#{@code}%", "%#{@description}%", "%#{@term}%").order(:code)
+      @courses = Course.where("lower(name) LIKE ? AND code LIKE ? AND description LIKE ? AND term LIKE ?", "%#{@query}%", "%#{@code}%", "%#{@description}%", "%#{@term}%")
     end
     # Saves uniq course by code and paginates.
-    @courses = @courses.uniq { |x| x[:code] }
+    @courses = @courses.order(:code)
     @courses = @courses.paginate(:per_page => 15, page: params[:page])
   end
-
 end

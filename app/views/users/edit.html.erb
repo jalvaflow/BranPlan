@@ -14,10 +14,7 @@
       <%= f.submit "Submit", :style => "display:none;" %>
     <% end %>
     <label style="padding-bottom: 10px;">Degrees</label>
-    <%= form_tag("", method: :get, :id => "degree-search", remote: true) do %>
-      <%= select_tag :degrees, options_for_select(@subjects.map { |subject|
-          subject.name}), id: "degrees", multiple: "multiple"  %>
-    <% end %>
+      <%= render 'users/edit/degree_multiselect' %>
     <br>
     <label>Course History</label>
     <div id="course_history"><%= render 'users/edit/course_history' %></div>
@@ -31,13 +28,10 @@
 </div>
 
 <script>
-$(document).on('turbolinks:load', () => {
-  // Credits form
-  $('#user_credits').on('change', () => Rails.fire($('#credits-form')[0], 'submit'))
-  // Course history
-  $('#history_code').on('input', function() {
-    if (this.value.length >= 0) Rails.fire($('#history')[0], 'submit')
-  })
+$(function() {
+  $("#history").keyup(function() {
+    $.get(this.action, $(this).serialize(), null, "script");
+  });
 });
 </script>
 

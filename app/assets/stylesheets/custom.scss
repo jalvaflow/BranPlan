@@ -479,6 +479,12 @@ input:focus {
   background-color: $navy_blue !important;
 }
 
+.multiselect {
+  b.caret {
+    display: none;
+  }
+}
+
 /* footer */
 
 footer {
