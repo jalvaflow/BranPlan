@@ -29,16 +29,22 @@
             Section
             <%= section.section %></p>
           <div style="margin-left: 10px;">
-            <p>Instructor(s):
-              <%= @professors[section.section] %></p>
-            <p>
+            <p><strong style="padding-right: 7px;">Instructor(s):</strong>
+              <%= @professors[section.section] %>
+              <br>
+              <strong style="padding-right: 7px;">Days:</strong>
+                <%= @days[section.section] %>
+              <br>
+              <strong style="padding-right: 7px;">Times:</strong>
+                <%= @times[section.section][0] %> - <%= @times[section.section][1] %>
+            </p>
               <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
                 <td>
                   <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
                 </td>
               <% else %>
                 <td>
-                  <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
+                  <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put, remote: true) %>
                 </td>
               <% end %>
             </div>

@@ -14,14 +14,47 @@ class CoursesController < ApplicationController
     @sections = Section.where(course: @course.course_id)
     @term = Term.find_by(term_id: @course.term)
     @professors = {}
-    # @days = {}
+    @days = {}
+    @times = {}
     @sections.each do |section|
       instructor_id = SectionInstructor.find_by(section_id: section.section_id).instructor_id
       instructor = Instructor.find_by(instructor_id: instructor_id)
       @professors[section.section] = instructor.first+" "+instructor.last
-      # days = SectionTime.find_by(section_id: section.section_id).days
-      # @days[section.section] = days
+      days_list = SectionTime.find_by(section_id: section.section_id).days
+      @days[section.section] = days_list_convert(days_list)
+      start_time = SectionTime.find_by(section_id: section.section_id).start
+      end_time = SectionTime.find_by(section_id: section.section_id).end
+      @times[section.section] = [convert_time(start_time), convert_time(end_time)]
     end
+  end
+
+  def days_list_convert(days_list)
+    days = Array.new(5)
+    days_list.each do |day|
+      if day == "m"
+        days[0] = "Monday"
+      elsif day == "tu"
+        days[1] = "Tuesday"
+      elsif day == "w"
+        days[2] = "Wednesday"
+      elsif day == "th"
+        days[3] = "Thursday"
+      else
+        days[4] = "Friday"
+      end
+    end
+    days.reject! { |d| d.nil? }
+    days = days.join(", ")
+  end
+
+  def convert_time(time)
+    t = Time.now.midnight
+    t = t + (time*60)
+    t = t.strftime("%I:%M %p")
+    if t[0] == "0"
+      t[0] = ''
+    end
+    t
   end
 
   # GET /courses/new

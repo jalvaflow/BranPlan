@@ -1,42 +1,21 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<%= simple_form_for @event, remote: true do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
+    <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+    <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+    <%= f.input :color, as: :select, collection: [['Black','black'], ['Red','red'], ['Orange','orange'], ['Yellow','#CCCC00'], ['Green','green'], ['Blue','blue'], ['Purple','purple']] %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit,
+                class: 'btn btn-success',
+                data: { confirm: 'Are you sure you want to submit this event?' } %>
+    <%= link_to 'Delete',
+                event,
+                method: :delete,
+                class: 'btn btn-danger',
+                data: { confirm: 'Are you sure you want to delete this event?' },
+                remote: true unless @event.new_record? %>
   </div>
 <% end %>

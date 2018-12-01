@@ -21,6 +21,9 @@ class EnrollmentsController < ApplicationController
     Enrollment.create(user_id: @user.id, course_id: @course_id, section_id: @section_id, term_id: @term_id)
     flash[:success] = "Succesful enrollment in #{Course.find(@course_id).code}!"
     redirect_back(fallback_location: root_path)
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def unenroll
