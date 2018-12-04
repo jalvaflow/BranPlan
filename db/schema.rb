@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_205746) do
+ActiveRecord::Schema.define(version: 2018_12_04_022859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_205746) do
     t.integer "start"
     t.integer "end"
     t.string "days"
-    t.string "type"
+    t.string "section_type"
     t.string "building"
     t.string "room"
     t.datetime "created_at", null: false

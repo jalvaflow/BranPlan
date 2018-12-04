@@ -21,7 +21,7 @@ Registrar DB Schema
             -rails g scaffold CourseSubject course_code:string subject_id:string segment_id:integer
 
     Model: SectionTime
-            -rails g scaffold SectionTime section_id:string start:integer end:integer days:string type:string building:string room:string
+            -rails g scaffold SectionTime section_id:string start:integer end:integer days:string section_type:string building:string room:string
 
     Model: CourseRequirement
             -rails g scaffold CourseRequirement course_id:string requirement:string

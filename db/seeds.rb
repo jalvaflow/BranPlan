@@ -105,7 +105,7 @@ segments = []
                 start: time["start"], #integer in the closed interval [0, 1440]
                 end: time["end"], #integer in the closed interval [0, 1440]
                 days: time["days"], ############################# Make sure to put "serialize: days" in the section_times model
-                type: time["type"], #should this be a determinining aspect for section times (i.e. should this attribute be an enumeration)
+                section_type: time["type"], #should this be a determinining aspect for section times (i.e. should this attribute be an enumeration)
                 building: time["building"],
                 room: time["room"]
             }

@@ -15,7 +15,7 @@ describe SectionTimesController do
 
   it "creates section_time" do
     expect {
-      post section_times_url, params: { section_time: { building: section_time.building, days: section_time.days, end: section_time.end, room: section_time.room, section_id: section_time.section_id, start: section_time.start, type: section_time.type } }
+      post section_times_url, params: { section_time: { building: section_time.building, days: section_time.days, end: section_time.end, room: section_time.room, section_id: section_time.section_id, section_type: section_time.section_type, start: section_time.start } }
     }.must_change "SectionTime.count"
 
     must_redirect_to section_time_path(SectionTime.last)
@@ -32,7 +32,7 @@ describe SectionTimesController do
   end
 
   it "updates section_time" do
-    patch section_time_url(section_time), params: { section_time: { building: section_time.building, days: section_time.days, end: section_time.end, room: section_time.room, section_id: section_time.section_id, start: section_time.start, type: section_time.type } }
+    patch section_time_url(section_time), params: { section_time: { building: section_time.building, days: section_time.days, end: section_time.end, room: section_time.room, section_id: section_time.section_id, section_type: section_time.section_type, start: section_time.start } }
     must_redirect_to section_time_path(section_time)
   end
 

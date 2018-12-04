@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :section_times
   resources :events
   resources :enrollments
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   resources :sections
   resources :section_instructors
   resources :course_requirements
-  resources :section_times
   resources :course_subjects
   resources :subjects
   resources :courses
