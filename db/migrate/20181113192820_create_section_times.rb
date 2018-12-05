@@ -5,7 +5,7 @@ class CreateSectionTimes < ActiveRecord::Migration[5.2]
       t.integer :start
       t.integer :end
       t.string :days
-      t.string :type
+      t.string :section_type
       t.string :building
       t.string :room
 
