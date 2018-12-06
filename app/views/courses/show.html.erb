@@ -24,12 +24,13 @@
     <% if @term.id == 4 or @term.id == 5 %>
       <p>
         <% @sections.order(:section).each do |section| %>
+          <% @section_times = SectionTime.where(section_id: section.section_id) %>
           <br>
           <p id="section-info">
             Section
             <%= section.section %></p>
           <div style="margin-left: 10px;">
-            <p><strong style="padding-right: 7px;">Instructor(s):</strong>
+             <p><strong style="padding-right: 7px;">Instructor(s):</strong>
               <%= @professors[section.section] %>
               <br>
               <strong style="padding-right: 7px;">Days:</strong>
@@ -37,6 +38,25 @@
               <br>
               <strong style="padding-right: 7px;">Times:</strong>
                 <%= @times[section.section][0] %> - <%= @times[section.section][1] %>
+                <br>
+              <% @section_times.each do |s| %>
+                <% if s.section_type == "Recitation" %>
+                  <p><strong style="padding-right:7px;">Recitation:</strong>
+                  <br>
+                  <strong style="margin-left:14px;padding-right:7px;">Days:</strong>
+                    <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").days) %>
+                  <br>
+                  <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
+                    <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").start) %> - <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Recitation"]).end) %>
+                <% elsif s.section_type == "Lab" %>
+                  <p><strong style="padding-right:7px;">Lab:</strong>
+                  <br>
+                  <strong style="margin-left:14px;padding-right:7px;">Days:</strong>
+                    <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").days) %>
+                  <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
+                    <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").start) %> - <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Lab"]).end) %>
+                <% end %>
+              <% end %>
             </p>
               <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
                 <td>

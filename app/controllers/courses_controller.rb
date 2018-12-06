@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  helper_method :days_list_convert
+  helper_method :convert_time
 
   # GET /courses
   # GET /courses.json
@@ -20,10 +22,10 @@ class CoursesController < ApplicationController
       instructor_id = SectionInstructor.find_by(section_id: section.section_id).instructor_id
       instructor = Instructor.find_by(instructor_id: instructor_id)
       @professors[section.section] = instructor.first+" "+instructor.last
-      days_list = SectionTime.find_by(section_id: section.section_id).days
+      days_list = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).days
       @days[section.section] = days_list_convert(days_list)
-      start_time = SectionTime.find_by(section_id: section.section_id).start
-      end_time = SectionTime.find_by(section_id: section.section_id).end
+      start_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).start
+      end_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).end
       @times[section.section] = [convert_time(start_time), convert_time(end_time)]
     end
   end
