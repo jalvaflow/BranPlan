@@ -22,11 +22,11 @@ class CoursesController < ApplicationController
       instructor_id = SectionInstructor.find_by(section_id: section.section_id).instructor_id
       instructor = Instructor.find_by(instructor_id: instructor_id)
       @professors[section.section] = instructor.first+" "+instructor.last
-      if !SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).nil?
+      if !SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", "section", nil]).nil?
         days_list = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).days
         @days[section.section] = days_list_convert(days_list)
-        start_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).start
-        end_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", nil]).end
+        start_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", "section", nil]).start
+        end_time = SectionTime.find_by(section_id: section.section_id, section_type: ["Lecture", "section", nil]).end
         @times[section.section] = [convert_time(start_time), convert_time(end_time)]
       end
     end
