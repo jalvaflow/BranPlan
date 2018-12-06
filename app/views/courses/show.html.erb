@@ -8,7 +8,8 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">Brandeis University</li>
         <li class="breadcrumb-item active"><%= Term.find_by(term_id: @course.term).name %></li>
-        <li class="breadcrumb-item active" aria-current="page"><%= @course.name %> (<%= @course.code %>)</li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @course.name %>
+          (<%= @course.code %>)</li>
       </ol>
     </nav>
     <h1>
@@ -21,56 +22,68 @@
       <%= @course.description %>
     </p>
     <%# If Fall 2018 or Spring 2019 course, able to enroll %>
-    <% if @term.id == 4 or @term.id == 5 %>
-      <p>
-        <% @sections.order(:section).each do |section| %>
-          <% @section_times = SectionTime.where(section_id: section.section_id) %>
-          <br>
-          <p id="section-info">
-            Section
-            <%= section.section %></p>
-          <div style="margin-left: 10px;">
-             <p><strong style="padding-right: 7px;">Instructor(s):</strong>
-              <%= @professors[section.section] %>
+      <% if @term.id == 4 or @term.id == 5 %>
+        <p>
+          <% @sections.order(:section).each do |section| %>
+            <% @section_times = SectionTime.where(section_id: section.section_id) %>
               <br>
-              <strong style="padding-right: 7px;">Days:</strong>
-                <%= @days[section.section] %>
-              <br>
-              <strong style="padding-right: 7px;">Times:</strong>
-                <%= @times[section.section][0] %> - <%= @times[section.section][1] %>
-                <br>
-              <% @section_times.each do |s| %>
-                <% if s.section_type == "Recitation" %>
-                  <p><strong style="padding-right:7px;">Recitation:</strong>
+              <p id="section-info">
+                Section
+                <%= section.section %></p>
+              <div style="margin-left: 10px;">
+                <p>
+                  <strong style="padding-right: 7px;">Instructor(s):</strong>
+                  <%= @professors[section.section] %>
                   <br>
-                  <strong style="margin-left:14px;padding-right:7px;">Days:</strong>
-                    <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").days) %>
-                  <br>
-                  <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
-                    <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").start) %> - <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Recitation"]).end) %>
-                <% elsif s.section_type == "Lab" %>
-                  <p><strong style="padding-right:7px;">Lab:</strong>
-                  <br>
-                  <strong style="margin-left:14px;padding-right:7px;">Days:</strong>
-                    <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").days) %>
-                  <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
-                    <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").start) %> - <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Lab"]).end) %>
-                <% end %>
-              <% end %>
-            </p>
-              <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
-                <td>
-                  <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
-                </td>
+                  <% if !SectionTime.find_by(section_id: section.section_id).nil? %>
+                    <strong style="padding-right: 7px;">Day(s):</strong>
+                    <%= @days[section.section] %>
+                    <br>
+                    <strong style="padding-right: 7px;">Time:</strong>
+                    <%= @times[section.section][0] %>
+                    -
+                    <%= @times[section.section][1] %>
+                    <br>
+                    <% @section_times.each do |s| %>
+                      <% if s.section_type == "Recitation" %>
+                        <p>
+                          <strong style="padding-right:7px;">Recitation:</strong>
+                          <br>
+                          <strong style="margin-left:14px;padding-right:7px;">Day(s):</strong>
+                          <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").days) %>
+                          <br>
+                          <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
+                          <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Recitation").start) %>
+                          -
+                          <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Recitation"]).end) %>
+                          <% elsif s.section_type == "Lab" %>
+                            <p>
+                              <strong style="padding-right:7px;">Lab:</strong>
+                              <br>
+                              <strong style="margin-left:14px;padding-right:7px;">Day(s):</strong>
+                              <%= days_list_convert(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").days) %>
+                              <br>
+                              <strong style="margin-left:14px;padding-right:7px;">Time:</strong>
+                              <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: "Lab").start) %>
+                              -
+                              <%= convert_time(SectionTime.find_by(section_id: section.section_id, section_type: ["Lab"]).end) %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      </p>
+                      <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
+                        <td>
+                          <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
+                        </td>
+                      <% else %>
+                        <td>
+                          <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put, remote: true) %>
+                        </td>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </p>
               <% else %>
-                <td>
-                  <%= link_to('<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put, remote: true) %>
-                </td>
+
               <% end %>
             </div>
-          <% end %>
-        </p>
-      <% else %>
-
-      <% end %>
-    </div>
