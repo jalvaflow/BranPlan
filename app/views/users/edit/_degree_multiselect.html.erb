@@ -1,41 +1,9 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
-<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
-
 <%= form_tag("", method: :get, :id => "degree-search", remote: true) do %>
   <%= select_tag :degrees, options_for_select(@subjects.map { |subject| subject.name}), multiple: "multiple" %>
 <% end %>
 
-<script type="text/javascript">
-$(document).ready(function () {
-  $('#degrees').multiselect({
-    enableFiltering: true,
-    maxHeight: 150,
-
-    onChange: function (option, checked) {
-      // Get selected options.
-      var selectedOptions = $('#degrees option:selected');
-
-      if (selectedOptions.length == 3) {
-        // Disable all other checkboxes.
-        var nonSelectedOptions = $('#degrees option').filter(function () {
-          return !$(this).is(':selected');
-        });
-
-        nonSelectedOptions.each(function () {
-          var input = $('input[value="' + $(this).val() + '"]');
-          input.prop('disabled', true);
-          input.parent('li').addClass('disabled');
-        });
-      } else {
-        // Enable all checkboxes.
-        $('#degrees option').each(function () {
-          var input = $('input[value="' + $(this).val() + '"]');
-          input.prop('disabled', false);
-          input.parent('li').addClass('disabled');
-        });
-      }
-    }
-  });
+<script>
+$("#degrees").select2({
+  maximumSelectionLength: 3
 });
 </script>

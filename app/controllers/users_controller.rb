@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def multiselect
-  end
-
   def dashboard
     if (current_user)
       enrollment_fall_2018 = Enrollment.where(user_id: current_user.id, term_id: 4)

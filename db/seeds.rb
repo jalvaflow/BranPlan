@@ -129,4 +129,4 @@ CourseSubject.import course_subjects
 Section.import sections
 SectionTime.import section_times
 SectionInstructor.import section_instructors
-Segment.import segments 
+Segment.import segments
