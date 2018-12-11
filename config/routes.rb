@@ -35,9 +35,6 @@ Rails.application.routes.draw do
 
   get  '/edit', to: "users#edit"
 
-  get  '/multiselect', to: "users#multiselect"
-
-
   resources :users
 
 end

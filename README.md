@@ -31,4 +31,6 @@ Registrar DB Schema
 
     Model: Section
          -rails g scaffold Section section_id:string comment:string course:string section:integer details:string status:string status_text:string enrolled:integer limit:integer waiting:integer
-        
+
+    Model: Degrees
+         -rails g scaffold Degrees name:string type:string cores:integer electives:integer description:string site_link:string core_courses:array elective_courses:array

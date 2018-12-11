@@ -24,6 +24,7 @@ gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Use jquery for some styles
 gem 'jquery-rails'
+gem "select2-rails"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
