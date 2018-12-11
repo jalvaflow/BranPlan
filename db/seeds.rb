@@ -104,7 +104,7 @@ segments = []
                 section_id: line["id"],
                 start: time["start"], #integer in the closed interval [0, 1440]
                 end: time["end"], #integer in the closed interval [0, 1440]
-                days: time["days"], ############################# Make sure to put "serialize: days" in the section_times model
+                days: time["days"], ############################# Make sure to put "serialize :days, Arrays" in the section_times model
                 section_type: time["type"], #should this be a determinining aspect for section times (i.e. should this attribute be an enumeration)
                 building: time["building"],
                 room: time["room"]
@@ -118,6 +118,24 @@ segments = []
         end
     end
 end
+
+# Major seeding 
+parsedDegrees = JSON.parse(File.read("public/major_minor.JSON"), :quirks_mode => true); 0
+degrees = []
+parsedDegrees.each do |line|
+    degrees << {
+        name: line["name"],
+        type: line["type"],
+        cores: line["cores"],
+        electives: line["electives"],
+        description: line["description"],
+        site_link: line["site_link"],
+        core_courses: line["core_courses"],
+        elective_courses: line["elective_courses"]
+    }
+end
+
+    
  # debugger
 Requirement.import requirements
 Instructor.import instructors
@@ -129,4 +147,5 @@ CourseSubject.import course_subjects
 Section.import sections
 SectionTime.import section_times
 SectionInstructor.import section_instructors
-Segment.import segments
+Segment.import segments 
+Degree.import degrees

@@ -31,6 +31,30 @@ Registrar DB Schema
 
     Model: Section
          -rails g scaffold Section section_id:string comment:string course:string section:integer details:string status:string status_text:string enrolled:integer limit:integer waiting:integer
+<<<<<<< HEAD
 
     Model: Degrees
          -rails g scaffold Degrees name:string type:string cores:integer electives:integer description:string site_link:string core_courses:array elective_courses:array
+=======
+        
+    Models: Degree
+        -rails g scaffold Degree name:string type:string electives:integer cores:integer description:string site_link:string id:integer
+
+<!-- Models: DegreeCourse
+        -rails g scaffold DegreeCourse degree_id:integer course_code:string
+
+    Models: StudentDegree
+        -rails g scaffold StudentDegree degree_id:integer uid:string status:string -->
+
+
+JSON Degree Format
+{"name":"",
+  "type":"",
+  "cores":"",
+  "electives":"",
+  "description":"",
+  "site_link":"",
+  "core_courses":[],
+  "elective_courses": []
+},
+>>>>>>> models-w-relations
