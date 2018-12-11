@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  degree_type: MyString
+  electives: 1
+  cores: 1
+  description: MyString
+  site_link: MyString
+  core_courses: MyString
+  elective_courses: MyString
+
+two:
+  name: MyString
+  degree_type: MyString
+  electives: 1
+  cores: 1
+  description: MyString
+  site_link: MyString
+  core_courses: MyString
+  elective_courses: MyString

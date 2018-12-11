@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Degrees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Degree type</th>
+      <th>Electives</th>
+      <th>Cores</th>
+      <th>Description</th>
+      <th>Site link</th>
+      <th>Core courses</th>
+      <th>Elective courses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @degrees.each do |degree| %>
+      <tr>
+        <td><%= degree.name %></td>
+        <td><%= degree.degree_type %></td>
+        <td><%= degree.electives %></td>
+        <td><%= degree.cores %></td>
+        <td><%= degree.description %></td>
+        <td><%= degree.site_link %></td>
+        <td><%= degree.core_courses %></td>
+        <td><%= degree.elective_courses %></td>
+        <td><%= link_to 'Show', degree %></td>
+        <td><%= link_to 'Edit', edit_degree_path(degree) %></td>
+        <td><%= link_to 'Destroy', degree, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Degree', new_degree_path %>

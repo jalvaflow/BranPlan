@@ -1,0 +1,57 @@
+<%= form_with(model: degree, local: true) do |form| %>
+  <% if degree.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(degree.errors.count, "error") %> prohibited this degree from being saved:</h2>
+
+      <ul>
+      <% degree.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :degree_type %>
+    <%= form.text_field :degree_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electives %>
+    <%= form.number_field :electives %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cores %>
+    <%= form.number_field :cores %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :site_link %>
+    <%= form.text_field :site_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :core_courses %>
+    <%= form.text_field :core_courses %>
+  </div>
+
+  <div class="field">
+    <%= form.label :elective_courses %>
+    <%= form.text_field :elective_courses %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

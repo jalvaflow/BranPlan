@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @degree.name %>
+</p>
+
+<p>
+  <strong>Degree type:</strong>
+  <%= @degree.degree_type %>
+</p>
+
+<p>
+  <strong>Electives:</strong>
+  <%= @degree.electives %>
+</p>
+
+<p>
+  <strong>Cores:</strong>
+  <%= @degree.cores %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @degree.description %>
+</p>
+
+<p>
+  <strong>Site link:</strong>
+  <%= @degree.site_link %>
+</p>
+
+<p>
+  <strong>Core courses:</strong>
+  <%= @degree.core_courses %>
+</p>
+
+<p>
+  <strong>Elective courses:</strong>
+  <%= @degree.elective_courses %>
+</p>
+
+<%= link_to 'Edit', edit_degree_path(@degree) %> |
+<%= link_to 'Back', degrees_path %>
