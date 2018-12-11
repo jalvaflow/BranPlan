@@ -57,6 +57,12 @@ class UsersController < ApplicationController
 
     @subjects = Subject.order(:name).uniq{|subject| subject.name}
 
+    degrees_list = Degree.order(:name)
+    @degrees = []
+    degrees_list.each do |degree|
+      @degrees.push(degree.name+" ("+degree.degree_type+")")
+    end
+
     @course_codes = nil
 
     @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)

@@ -8,16 +8,6 @@
 "elective_courses": ["AMST 103B","AMST 190A","ANTH 26A","ANTH 70A","ANTH 163B","CHIN 106B","CLAS 121B","ECON 87A","FA 87A","ENG 188B","FREN 124A","HBRW 124A","NEJS 163A","PHIL 25A","PSYC 34B","SOC 120B","SOC 150B","THA 138A","ECON 57A","ECON 76B","FA 181A","HS 104B","HS 110A","HSSP 104B","HSSP 106A","HSSP 107B","SOC 112B","SOC 116A","SOC 117A","SOC 175B","AAAS 126B","AMST 188B","ECON 20A","HIST 160B","LGLS 114A","LGLS 127B","LGLS 138B","POL 172B","SOC 123B","BUS 113A","BUS 114A","BUS 117A","ECON 171A","FIN 202A","BUS 135A","ECON 161A","ECON 172B","BUS 89A","BUS 125A","BUS 222f","BUS 226f","BUS 227A","BUS 130A","BUS 160A","BUS 231A","BUS 261A","BUS 262A","BUS 265A","ECON 265A","ECON 135A","ECON 141B","BUS 111A","BUS 114A","BUS 172A","BUS 174A","LGLS 189A","BUS 152A","BUS 255A","BUS 155A","BUS 160A","BUS 195A","BUS 292A"]
 },
 
-{"name":"Business",
-"type":"Minor",
-"cores":"3",
-"electives":"3",
-"description":" ",
-"site_link":"http://www.brandeis.edu/business/undergraduate/minor/index.html",
-"core_courses":["Econ 10A","BUS 6A","BUS 10A"],
-"elective_courses": ["AMST 103B","AMST 190A","ANTH 26A","ANTH 70A","ANTH 163B","CHIN 106B","CLAS 121B","ECON 87A","FA 87A","ENG 188B","FREN 124A","HBRW 124A","NEJS 163A","PHIL 25A","PSYC 34B","SOC 120B","SOC 150B","THA 138A","ECON 57A","ECON 76B","FA 181A","HS 104B","HS 110A","HSSP 104B","HSSP 106A","HSSP 107B","SOC 112B","SOC 116A","SOC 117A","SOC 175B","AAAS 126B","AMST 188B","ECON 20A","HIST 160B","LGLS 114A","LGLS 127B","LGLS 138B","POL 172B","SOC 123B","BUS 113A","BUS 114A","BUS 117A","ECON 171A","FIN 202A","BUS 135A","ECON 161A","ECON 172B","BUS 89A","BUS 125A","BUS 222f","BUS 226f","BUS 227A","BUS 130A","BUS 160A","BUS 231A","BUS 261A","BUS 262A","BUS 265A","ECON 265A","ECON 135A","ECON 141B","BUS 111A","BUS 114A","BUS 172A","BUS 174A","LGLS 189A","BUS 152A","BUS 255A","BUS 155A","BUS 160A","BUS 195A","BUS 292A"]
-},
-
 {"name":"Psychology",
 "type":"BA",
 "cores":"3",
@@ -26,16 +16,6 @@
 "site_link":"https://www.brandeis.edu/registrar/bulletin/provisional/courses/subjects/5900.html#requirementsfortheundergraduatemajor",
 "core_courses":["PSYC 10A","PSYC 51A","PSYC 52A"],
 "elective_courses": ["NPSY 11B","NPSY 12A","PSYC 15A","NPSY 16A","NPSY 17A","NPSY 22B","NPSY 28A","NBIO 45A","NBIO 140B","NPSY 199A","PSYC 31A","PSYC 32A","PSYC 33A","PSYC 34B","PSYC 36B","PSYC 37A","PSYC 38A","NPSY 120B","PSYC 130B","NPSY 139A","NPSY 141A","PSYC 142A","NPSY 154A","PSYC 155A","PSYC 157A","PSYC 160B","PSYC 169B","NPSY 174B","NPSY 180A","NPSY 120B","PSYC 130B","PSYC 135B","NPSY 139A","PSYC 140A","NPSY 141A","PSYC 142A","PSYC 148A","PSYC 150B","NPSY 154A","PSYC 155A","PSYC 160B","PSYC 161A","PSYC 161B","PSYC 169B","NPSY 174B","NPSY 180A","NSPY 182A","PSYC 184A","PSYC 193B","NPSY 196B","NPSY 197A"]
-},
-
-{"name":"Psychology",
-"type":"Minor",
-"cores":"3",
-"electives":"2",
-"description":" ",
-"site_link":"https://www.brandeis.edu/registrar/bulletin/provisional/courses/subjects/5900.html#requirementsfortheundergraduatemajor",
-"core_courses":["PSYC 10A","PSYC 51A","PSYC 52A"],
-"elective_courses": ["NPSY 11B","NPSY 12A","PSYC 15A","NPSY 16A","NPSY 17A","NPSY 22B","NPSY 28A","NBIO 45A","NBIO 140B","NPSY 199A","PSYC 31A","PSYC 32A","PSYC 33A","PSYC 34B","PSYC 36B","PSYC 37A","PSYC 38A","NSPY 182A","PSYC 184A","PSYC 193B","NPSY 196B","NPSY 197A"]
 },
 
 {"name":"Neuroscience",

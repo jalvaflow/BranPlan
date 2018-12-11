@@ -119,7 +119,7 @@ segments = []
     end
 end
 
-# Major seeding 
+# Major seeding
 parsedDegrees = JSON.parse(File.read("public/major_minor.JSON"), :quirks_mode => true); 0
 degrees = []
 parsedDegrees.each do |line|
@@ -135,7 +135,7 @@ parsedDegrees.each do |line|
     }
 end
 
-    
+
  # debugger
 Requirement.import requirements
 Instructor.import instructors
@@ -147,5 +147,5 @@ CourseSubject.import course_subjects
 Section.import sections
 SectionTime.import section_times
 SectionInstructor.import section_instructors
-Segment.import segments 
+Segment.import segments
 Degree.import degrees
