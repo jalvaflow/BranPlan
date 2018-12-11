@@ -125,7 +125,7 @@ degrees = []
 parsedDegrees.each do |line|
     degrees << {
         name: line["name"],
-        type: line["type"],
+        degree_type: line["type"],
         cores: line["cores"],
         electives: line["electives"],
         description: line["description"],

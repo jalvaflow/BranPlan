@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :declarations
   resources :degrees
   resources :section_times
   resources :events
