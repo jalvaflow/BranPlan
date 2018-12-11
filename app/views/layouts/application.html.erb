@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Template" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Template" %>">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
   <%= render 'layouts/head' %>
   <body>
     <%= render 'layouts/header' %>
@@ -7,5 +15,11 @@
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
+    <main role="main">
+      <div class='container'>
+        <%= yield %>
+        <div id='remote_container'></div>
+      </div>
+    </main>
   </body>
 </html>

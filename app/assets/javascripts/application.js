@@ -18,9 +18,10 @@
 //= require select2_locale_pt-BR
 //= require bootstrap
 //= require activestorage
-//= require_tree .
 //= require moment
 //= require fullcalendar
-//= require fullcalendar/locale-all
+//= require daterangepicker
+//= require_tree .
+
 
 ScrollReveal().reveal('.hideme');
