@@ -40,7 +40,7 @@ BranPlan was initially inspired by the functionalities provided by schdl.net and
 - Ability to search/discover and keep a record of courses being taken.
 - View progress toward degree and university requirements.
 - Schedule auxiliary events on an interactive calendar. 
-- Give suggestions for next semester’s courses
+- Give suggestions for next semester’s courses.
 
 ## Images and Snippets ##
 ![snippet](https://i.ibb.co/DQX4Q4f/image.png)
