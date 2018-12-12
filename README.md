@@ -10,6 +10,7 @@ As busy undergraduates, it's hard to allocate time for things other than coursew
 ## Technology & Technique ##
 ### Language and Structure ###
 - Ruby on Rails, JavaScript, JQuery, Turbolink, AJAX, HTML, SASS, CSS, PostgreSQL
+
 ### External API’s/Packages ###
 - Google OAuth/Brandeis Auth 
 - Bootstrap
