@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_degrees
   resources :degrees_users
   resources :degrees
   resources :section_times
@@ -37,6 +38,10 @@ Rails.application.routes.draw do
 
   get  '/edit', to: "users#edit"
 
-  resources :users
+  resources :users do
+    get :add_degree, on: :collection
+    get :remove_degree, on: :collection
+    # or you may prefer to call this route on: :member
+  end
 
 end

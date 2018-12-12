@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Degrees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Degree</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_degrees.each do |user_degree| %>
+      <tr>
+        <td><%= user_degree.user_id %></td>
+        <td><%= user_degree.degree_id %></td>
+        <td><%= link_to 'Show', user_degree %></td>
+        <td><%= link_to 'Edit', edit_user_degree_path(user_degree) %></td>
+        <td><%= link_to 'Destroy', user_degree, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Degree', new_user_degree_path %>

@@ -57,10 +57,14 @@ class UsersController < ApplicationController
 
     @subjects = Subject.order(:name).uniq{|subject| subject.name}
 
-    degrees_list = Degree.order(:name)
-    @degrees = []
-    degrees_list.each do |degree|
-      @degrees.push(degree.name+" ("+degree.degree_type+")")
+    @degrees = Degree.order(:name)
+
+    @user_degrees = []
+    UserDegree.where(user_id: current_user.id).each do |entry|
+      degree_id = entry.degree_id
+      degree = Degree.find_by(id: degree_id)
+      name = degree.name+" ("+degree.degree_type+")" 
+      @user_degrees.push(name)
     end
 
     @course_codes = nil
@@ -87,6 +91,23 @@ class UsersController < ApplicationController
       @course_codes = @course_codes - @course_history
       @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
     end
+  end
+
+  def add_degree
+    degree = params[:degree]
+    name = degree.split(" ")[0]
+    type = degree.split(" ")[1][1...-1]
+    degree_id = Degree.find_by(name: name, degree_type: type).id
+    UserDegree.create(user_id: current_user.id, degree_id: degree_id)
+  end
+
+  def remove_degree
+    degree = params[:degree]
+    name = degree.split(" ")[0]
+    type = degree.split(" ")[1][1...-1]
+    degree_id = Degree.find_by(name: name, degree_type: type).id
+    entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
+    entry.destroy
   end
 
   def update
