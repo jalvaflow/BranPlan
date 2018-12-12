@@ -29,6 +29,9 @@
 
 <script>
 $(function() {
+  $("#credits-form").keyup(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+  });
   $("#history").keyup(function() {
     $.get(this.action, $(this).serialize(), null, "script");
   });
