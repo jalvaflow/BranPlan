@@ -1,5 +1,5 @@
 <%= form_tag("", method: :get, :id => "degree-search", remote: true) do %>
-  <%= select_tag :degrees, options_for_select(@subjects.map { |subject| subject.name}), multiple: "multiple" %>
+  <%= select_tag :degrees, options_for_select(@degrees.map { |degree| degree}), multiple: "multiple" %>
 <% end %>
 
 <script>
