@@ -119,6 +119,7 @@ class UsersController < ApplicationController
 
     @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)
     @course_history = @course_history.map {|x| x.course_code}
+    @course_history = @course_history.paginate(:per_page => 5, page: params[:page])
 
     if !params[:history_code].nil?
       @course_codes = Course.order(:code).uniq {|x| x.code}

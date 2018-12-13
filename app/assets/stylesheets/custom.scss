@@ -273,16 +273,17 @@ a:link {
 /* Dashboard */
 
 .circle {
-  width: 30px;
-  height: 30px;
-  border: solid 1px black;
+  width: 32px;
+  height: 32px;
+  border: solid 2px black;
   border-radius: 50%;
   font-size: 11px;
+  font-weight: bold;
   color: #000;
   line-height: 32px;
   text-align: center;
-  background: white;
-  margin-left:15px;
+  background: #f6f7f9;
+  margin-left:14px;
 }
 
 #calendar {
@@ -295,7 +296,7 @@ a:link {
   background-color: $gray-light;
   margin-top: 20px;
   border-radius: 40px;
-  height: 500px;
+  height: 550px;
   h3 {
     font-size: 30px;
     margin-top: -5px;
@@ -312,7 +313,7 @@ a:link {
 }
 
 .bar-type {
-  font-size: 14px !important;
+  font-size: 15px !important;
   color: $navy_blue;
 }
 
@@ -475,6 +476,20 @@ input:focus {
 #history-results {
   margin-top: -20px;
   margin-bottom: -20px;
+}
+
+#course-history-jumbo {
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+#course-history {
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.padbar {
+  margin-bottom: -40px;
 }
 
 .pagination {

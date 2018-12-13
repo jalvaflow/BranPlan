@@ -35,14 +35,13 @@
 
       </div>
       <div class="jumbotron col-md-4 ml-auto grow dash-panels">
-        <h3 class="center">Progress<h3>
-            <p class="bar-type">Credits (<%= @credits %>
-              / 128)</p>
+            <p class="bar-type"><strong>Credits (<%= @credits %>
+              / 128)</strong></p>
             <div class="progress">
-              <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
+              <div class="progress-bar" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
             </div>
 
-            <p class="bar-type">University Requirements</p>
+            <p class="bar-type" style="padding-top:10px;"><strong>University Requirements</strong></p>
             <%= render 'users/dashboard/dashboard_uni_reqs' %>
 
             <%= render 'users/dashboard/dashboard_degrees' %>
