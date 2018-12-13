@@ -41,6 +41,11 @@
             <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
             </div>
+
+            <p class="bar-type">University Requirements</p>
+            <%= render 'users/dashboard/dashboard_uni_reqs' %>
+
+            <%= render 'users/dashboard/dashboard_degrees' %>
           </div>
 
           <script>

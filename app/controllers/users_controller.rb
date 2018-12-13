@@ -7,6 +7,19 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @user_uni_reqs = findCompletedUniReqs()
+
+    @user_degrees = []
+    UserDegree.where(user_id: current_user.id).each do |entry|
+      degree_id = entry.degree_id
+      degree = Degree.find_by(id: degree_id)
+      name = degree.name+" ("+degree.degree_type+")"
+
+      percent = calculateDegreePercent(degree)
+
+      @user_degrees.push([name, percent])
+    end
+
     if (current_user)
       enrollment_fall_2018 = Enrollment.where(user_id: current_user.id, term_id: 4)
       enrollment_spring_2019 = Enrollment.where(user_id: current_user.id, term_id: 5)
@@ -35,6 +48,41 @@ class UsersController < ApplicationController
     else
       @credits_percent = (((@credits/128.0)*100).round)
     end
+  end
+
+  def findCompletedUniReqs
+    reqs_hash = Hash.new
+    reqs = ["UWS", "SN", "HU", "SS", "CA", "QR", "NW", "FL"]
+    reqs.each do |req|
+      reqs_hash[req] = 0
+    end
+    user_history_codes = UserCourseHistory.where(user_id: current_user.id).map { |c| c.course_code }
+    user_history_codes.each do |code|
+      course_id = Course.find_by(code: code).course_id
+      course_reqs = CourseRequirement.where(course_id: course_id)
+      # Why is c.requirement returning nil?
+      course_reqs.each do |req|
+        puts req.inspect
+        req_type = req[:requirement]
+        puts req_type
+        if reqs.include? req_type
+          reqs_hash[req_type] += 1
+        end
+      end
+    end
+    puts reqs_hash
+    reqs_hash
+  end
+
+  def calculateDegreePercent(degree)
+    num_courses = degree.cores + degree.electives
+    core_array = degree.core_courses
+    electives_array = degree.elective_courses
+    electives_num = degree.electives
+    user_history = UserCourseHistory.where(user_id: current_user.id)
+    user_history_codes = user_history.map { |c| c.course_code }
+    num_completed = (core_array & user_history_codes).length + (electives_array & user_history_codes).length
+    (((num_completed.to_f/num_courses.to_f)*100).round)
   end
 
   def new
