@@ -3,10 +3,13 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :code %>
+  </div>
 
 
-    <%= f.input_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
-    <%= f.input_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
+  <div class="form-inputs">
+
+    <%= f.input :start, value: Date.today, class: 'form-control input-sm start_hidden'%>
+    <%= f.input :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
   </div>
 
   <div class="form-actions">
