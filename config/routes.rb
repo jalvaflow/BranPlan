@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :user_degrees
+  resources :degrees_users
+  resources :degrees
+  resources :section_times
   resources :events
   resources :enrollments
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -10,7 +15,6 @@ Rails.application.routes.draw do
   resources :sections
   resources :section_instructors
   resources :course_requirements
-  resources :section_times
   resources :course_subjects
   resources :subjects
   resources :courses
@@ -35,6 +39,12 @@ Rails.application.routes.draw do
 
   get  '/edit', to: "users#edit"
 
-  resources :users
+  resources :users do
+    get :add_degree, on: :collection
+    get :remove_degree, on: :collection
+    get :pe_req_check, on: :collection
+    get :fl_req_check, on: :collection
+    # or you may prefer to call this route on: :member
+  end
 
 end

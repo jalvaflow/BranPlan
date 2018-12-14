@@ -1,9 +1,31 @@
 <%= form_tag("", method: :get, :id => "degree-search", remote: true) do %>
-  <%= select_tag :degrees, options_for_select(@subjects.map { |subject| subject.name}), multiple: "multiple" %>
+  <%= select_tag :degrees, options_for_select(@degrees.map { |degree| degree.name+" ("+degree.degree_type+")"}), multiple: "multiple" %>
 <% end %>
 
 <script>
+
+$('#degrees').on("select2:select", function(e){
+  $.ajax({
+    type:'GET',
+    url: "/users/add_degree",
+    data: {'degree' : e.params.data.id }
+  });
+    }).trigger('change');
+
+$('#degrees').on("select2:unselect", function(e){
+  $.ajax({
+    type:'GET',
+    url: "/users/remove_degree",
+    data: {'degree' : e.params.data.id }
+  });
+    }).trigger('change');
+
 $("#degrees").select2({
-  maximumSelectionLength: 3
+  maximumSelectionLength: 3,
+  placeholder: "Select up to 3 degrees."
 });
+
+var degree_array = <%=raw @user_degrees%>;
+$("#degrees").val(degree_array).trigger('change');
+
 </script>

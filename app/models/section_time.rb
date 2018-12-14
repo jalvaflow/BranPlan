@@ -1,3 +1,3 @@
 class SectionTime < ApplicationRecord
-  serialize :days, Array
+    serialize :days, Array
 end

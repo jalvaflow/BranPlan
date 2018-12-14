@@ -1,0 +1,83 @@
+<div class="row" style="padding-bottom:15px;">
+
+  <% if @user_uni_reqs["UWS"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">UWS</div>
+  <% else %>
+    <div class="circle">UWS</div>
+  <% end %>
+
+  <% if @user_uni_reqs["SN"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">SN</div>
+  <% else %>
+    <div class="circle">SN</div>
+  <% end %>
+
+  <% if @user_uni_reqs["HU"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">HU</div>
+  <% else %>
+    <div class="circle">HU</div>
+  <% end %>
+
+  <% if @user_uni_reqs["SS"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">SS</div>
+  <% else %>
+    <div class="circle">SS</div>
+  <% end %>
+
+  <% if @user_uni_reqs["CA"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">CA</div>
+  <% else %>
+    <div class="circle">CA</div>
+  <% end %>
+
+  <% if @user_uni_reqs["QR"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">QR</div>
+  <% else %>
+    <div class="circle">QR</div>
+  <% end %>
+
+</div>
+
+<div class="row" style="padding-bottom:15px;">
+
+  <% if @user_uni_reqs["NW"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">NW</div>
+  <% else %>
+    <div class="circle">NW</div>
+  <% end %>
+
+  <% if current_user.fl_complete == "Yes" || @user_uni_reqs["FL"] > 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">FL</div>
+  <% else %>
+    <div class="circle">FL</div>
+  <% end %>
+
+  <% if @user_uni_reqs["WI"] > 1 %>
+  <!-- Both WI completed. -->
+    <div class="circle" style="background-color: #2db934 !important;">WI (2)</div>
+  <% elsif @user_uni_reqs["WI"] == 1 && @user_uni_reqs["OC"] >= 1 %>
+  <!-- WI and an OC completed. -->
+    <div class="circle" style="background-color: #2db934 !important;">WI</div>
+    <div class="circle" style="background-color: #2db934 !important;">OC</div>
+  <% elsif @user_uni_reqs["WI"] == 1 && @user_uni_reqs["OC"] == 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">WI</div>
+    <div class="circle">OC</div>
+  <% elsif @user_uni_reqs["WI"] == 0 && @user_uni_reqs["OC"] >= 1 %>
+    <div class="circle">WI</div>
+    <div class="circle" style="background-color: #2db934 !important;">OC</div>
+  <% else %>
+    <div class="circle">WI</div>
+    <div class="circle">OC</div>
+  <% end %>
+
+  <% if current_user.pe_complete == "Yes" %>
+    <div class="circle" style="background-color: #2db934 !important;">PE</div>
+  <% elsif @user_uni_reqs["PE-1"] > 1 %>
+    <div class="circle" style="background-color: #2db934 !important;">PE (2)</div>
+  <% elsif @user_uni_reqs["PE-1"] == 1 %>
+    <div class="circle" style="background-color: #fff266 !important;">PE (2)</div>
+  <% else %>
+    <div class="circle">PE (2)</div>
+  <% end %>
+
+</div>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :enrollments
   has_many :courses, through: :enrollments
+  has_and_belongs_to_many :degrees
 
   def self.from_omniauth(auth)
     user = find_or_create_by(provider: auth.provider, uid: auth.uid)

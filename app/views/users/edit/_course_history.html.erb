@@ -2,14 +2,8 @@
   <% if @course_history.length == 0 %>
     <p style="margin-left: 10px;">You currently have no course history. Please search courses you've taken below by code.</p><br>
   <% else %>
-    <table class="table">
-      <thead id="thead">
-        <tr>
-          <th style="padding-right: 50px;">Code</th>
-          <th></th>
-        </tr>
-      </thead>
-
+  <div id="course-history-jumbo" class="jumbotron">
+    <table id="course-history" class="table table-striped">
       <tbody>
         <% @course_history.each do |code| %>
           <tr>
@@ -19,5 +13,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= will_paginate @course_history, class: "center paginate-bar padbar" %>
+  </div>
   <% end %>
 </div>

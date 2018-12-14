@@ -5,6 +5,7 @@ $gray-medium-light: #eaeaea;
 $cyan: #58aed1;
 $gray-light: #f8f9fa;
 $navy_blue: #06115d;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -272,6 +273,45 @@ a:link {
 
 /* Dashboard */
 
+#req-info {
+  height: 30px;
+  width: 30px;
+  margin-left: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  font-size: 20px;
+  padding-left: 8px !important;
+  line-height: 10px;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+  border: solid 1px black;
+  background-color: white;
+  -webkit-transform:scale(0.7);
+  -moz-transform:scale(0.7);
+  -ms-transform:scale(0.7);
+  transform:scale(0.7);
+}
+
+#req-info:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 2pt $cyan;
+}
+
+.circle {
+  width: 37px;
+  height: 37px;
+  border: solid 2px black;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: bold;
+  color: #000;
+  line-height: 32px;
+  text-align: center;
+  background: #f6f7f9;
+  margin-left:11px;
+}
+
 #calendar {
   h2 {
     color: black;
@@ -282,7 +322,7 @@ a:link {
   background-color: $gray-light;
   margin-top: 20px;
   border-radius: 40px;
-  height: 500px;
+  height: 550px;
   h3 {
     font-size: 30px;
     margin-top: -5px;
@@ -299,8 +339,8 @@ a:link {
 }
 
 .bar-type {
-  font-size: 14px !important;
-  color: $navy_blue;
+  font-size: 15px !important;
+  color: black;
 }
 
 .cd-schedule .events .events-group > ul {
@@ -407,6 +447,10 @@ input:focus {
   box-shadow: 0 0 1pt 2pt $cyan;
 }
 
+#pe-req-drop, #fl-req-drop {
+  width: 70px;
+}
+
 #search-button {
   border: solid 2px white;
   border-radius: 9px;
@@ -457,11 +501,27 @@ input:focus {
 
 #histroy-results-jumbo {
   border-radius: 20px;
+  background-color: #f6f7f9;
 }
 
 #history-results {
   margin-top: -20px;
   margin-bottom: -20px;
+}
+
+#course-history-jumbo {
+  margin-top: 15px;
+  border-radius: 20px;
+  background-color: #f6f7f9;
+}
+
+#course-history {
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.padbar {
+  margin-bottom: -40px;
 }
 
 .pagination {
@@ -585,16 +645,6 @@ input {
 
   .form-control {
     color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-
-  span {
-    margin-left: 20px;
-    font-weight: normal;
   }
 }
 

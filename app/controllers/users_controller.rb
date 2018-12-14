@@ -7,6 +7,19 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @user_uni_reqs = findCompletedUniReqs()
+
+    @user_degrees = []
+    UserDegree.where(user_id: current_user.id).each do |entry|
+      degree_id = entry.degree_id
+      degree = Degree.find_by(id: degree_id)
+      name = degree.name+" ("+degree.degree_type+")"
+
+      percent = calculateDegreePercent(degree)
+
+      @user_degrees.push([name, percent])
+    end
+
     if (current_user)
       enrollment_fall_2018 = Enrollment.where(user_id: current_user.id, term_id: 4)
       enrollment_spring_2019 = Enrollment.where(user_id: current_user.id, term_id: 5)
@@ -37,6 +50,38 @@ class UsersController < ApplicationController
     # end
   end
 
+  def findCompletedUniReqs
+    reqs_hash = Hash.new
+    reqs = ["UWS", "SN", "HU", "SS", "CA", "QR", "NW", "FL", "WI", "OC", "PE-1"]
+    reqs.each do |req|
+      reqs_hash[req] = 0
+    end
+    user_history_codes = UserCourseHistory.where(user_id: current_user.id).map { |c| c.course_code }
+    user_history_codes.each do |code|
+      course_id = Course.find_by(code: code).course_id
+      course_reqs = CourseRequirement.where(course_id: course_id)
+      # Why is c.requirement returning nil?
+      course_reqs.each do |req|
+        req_type = req[:requirement]
+        if reqs.include? req_type
+          reqs_hash[req_type] += 1
+        end
+      end
+    end
+    puts reqs_hash
+    reqs_hash
+  end
+
+  def calculateDegreePercent(degree)
+    num_courses = degree.cores + degree.electives
+    core_array = degree.core_courses.map(&:upcase)
+    electives_array = degree.elective_courses.map(&:upcase)
+    user_history = UserCourseHistory.where(user_id: current_user.id)
+    user_history_codes = user_history.map { |c| c.course_code }
+    num_completed = (core_array & user_history_codes).length + (electives_array & user_history_codes).length
+    (((num_completed.to_f/num_courses.to_f)*100).round)
+  end
+
   def new
     @user = User.new
   end
@@ -57,10 +102,21 @@ class UsersController < ApplicationController
 
     @subjects = Subject.order(:name).uniq{|subject| subject.name}
 
+    @degrees = Degree.order(:name)
+
+    @user_degrees = []
+    UserDegree.where(user_id: current_user.id).each do |entry|
+      degree_id = entry.degree_id
+      degree = Degree.find_by(id: degree_id)
+      name = degree.name+" ("+degree.degree_type+")"
+      @user_degrees.push(name)
+    end
+
     @course_codes = nil
 
     @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)
     @course_history = @course_history.map {|x| x.course_code}
+    @course_history = @course_history.paginate(:per_page => 5, page: params[:page])
 
     if !params[:history_code].nil?
       @course_codes = Course.order(:code).uniq {|x| x.code}
@@ -80,6 +136,42 @@ class UsersController < ApplicationController
     if !@course_codes.nil?
       @course_codes = @course_codes - @course_history
       @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
+    end
+  end
+
+  def add_degree
+    degree = params[:degree]
+    name = degree.rpartition(' ').first
+    type = degree.rpartition(' ').last[1...-1]
+    puts name+" "+type
+    degree_id = Degree.find_by(name: name, degree_type: type).id
+    UserDegree.create(user_id: current_user.id, degree_id: degree_id)
+  end
+
+  def remove_degree
+    degree = params[:degree]
+    name = degree.rpartition(' ').first
+    type = degree.rpartition(' ').last[1...-1]
+    puts name+" "+type
+    degree_id = Degree.find_by(name: name, degree_type: type).id
+    entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
+    entry.destroy
+  end
+
+  def pe_req_check
+    if params[:pe_val] == "Yes"
+      current_user.update_attributes(pe_complete: params[:pe_val])
+    else
+      current_user.update_attributes(pe_complete: params[:pe_val])
+    end
+  end
+
+  def fl_req_check
+    puts params[:fl_val]
+    if params[:fl_val] == "Yes"
+      current_user.update_attributes(fl_complete: params[:fl_val])
+    else
+      current_user.update_attributes(fl_complete: params[:fl_val])
     end
   end
 

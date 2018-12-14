@@ -1,0 +1,16 @@
+<div style="padding-top:10px;">
+
+<% if @user_degrees.length == 0 %>
+  <hr>
+  <br>
+  <p class="bar-type">You currently have no degrees selected. Please select your pursued degrees in
+  your academic information by clicking the "Account" button.</p>
+<% end %>
+
+<% @user_degrees.each do |degree| %>
+  <p class="bar-type"><strong><%= degree[0] %></strong></p>
+  <div class="progress">
+    <div class="progress-bar bg-info" role="progressbar" style="width: <%= degree[1] %>%" aria-valuenow="<%= degree[1] %>" aria-valuemin="0" aria-valuemax="100"><%= degree[1] %>%</div>
+  </div>
+<% end %>
+</div>
