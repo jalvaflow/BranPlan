@@ -28,13 +28,13 @@ class UsersController < ApplicationController
       redirect_to root_url
     end
 
-    @credits = current_user.credits
-    if @credits.nil?
-      @credits = 0
-      @credits_percent = 0
-    else
-      @credits_percent = (((@credits/128.0)*100).round)
-    end
+    # @credits = current_user.credits
+    # if @credits.nil?
+    #   @credits = 0
+    #   @credits_percent = 0
+    # else
+    #   @credits_percent = (((@credits/128.0)*100).round)
+    # end
   end
 
   def new
