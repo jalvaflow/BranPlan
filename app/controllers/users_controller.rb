@@ -74,9 +74,8 @@ class UsersController < ApplicationController
 
   def calculateDegreePercent(degree)
     num_courses = degree.cores + degree.electives
-    core_array = degree.core_courses
-    electives_array = degree.elective_courses
-    electives_num = degree.electives
+    core_array = degree.core_courses.map(&:upcase)
+    electives_array = degree.elective_courses.map(&:upcase)
     user_history = UserCourseHistory.where(user_id: current_user.id)
     user_history_codes = user_history.map { |c| c.course_code }
     num_completed = (core_array & user_history_codes).length + (electives_array & user_history_codes).length
@@ -160,11 +159,19 @@ class UsersController < ApplicationController
   end
 
   def pe_req_check
-    user = current_user
     if params[:pe_val] == "Yes"
       current_user.update_attributes(pe_complete: params[:pe_val])
     else
       current_user.update_attributes(pe_complete: params[:pe_val])
+    end
+  end
+
+  def fl_req_check
+    puts params[:fl_val]
+    if params[:fl_val] == "Yes"
+      current_user.update_attributes(fl_complete: params[:fl_val])
+    else
+      current_user.update_attributes(fl_complete: params[:fl_val])
     end
   end
 

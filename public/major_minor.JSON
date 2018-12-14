@@ -45,7 +45,7 @@
 "description":"Only 1 elective can cross list, and no COSI course numbered 10 or lower can count towards the major. Also COSI 99d can not contribute towards the major",
 "site_link":"http://www.brandeis.edu/computer-science/undergraduate/major.html",
 "core_courses":["COSI 11A", "COSI 12B", "COSI 21A", "COSI 29A", "COSI 131A"],
-"elective_courses": ["COSI 164a","CS 93a","CS 97a","CS 98a","COSI 98b","COSI 99d","COSI 133b","COSI 134a","COSI 135b","COSI 136a","COSI 137b","COSI 139a","COSI 140b","COSI 146a","COSI 147a","COSI 153a","COSI 155b","COSI 164a","COSI 165a","COSI 166b","COSI 167b","COSI 175a","COSI 177a","COSI 178a","COSI 180a","COSI 190a","COSI 200a","COSI 200b","COSI 210a","COSI 210b","COSI 215a","COSI 216a","COSI 217a","COSI 217b","COSI 220a","COSI 227b","COSI 228a","COSI 232f","COSI 233f","COSI 293g","COSI 300a","COSI 300b","COSI 320a","COSI 320b","COSI 400d","ANTH 138a","LING 130a","MATH 36a","MATH 39a","MATH 100a","MATH 100b","MATH 108b","PHIL 106b","PHYS 29a"]
+"elective_courses": ["COSI 164a","COSI 127b","CS 93a","CS 97a","CS 98a","COSI 98b","COSI 99d","COSI 133b","COSI 134a","COSI 135b","COSI 136a","COSI 137b","COSI 139a","COSI 140b","COSI 146a","COSI 147a","COSI 153a","COSI 155b","COSI 164a","COSI 165a","COSI 166b","COSI 167b","COSI 175a","COSI 177a","COSI 178a","COSI 180a","COSI 190a","COSI 200a","COSI 200b","COSI 210a","COSI 210b","COSI 215a","COSI 216a","COSI 217a","COSI 217b","COSI 220a","COSI 227b","COSI 228a","COSI 232f","COSI 233f","COSI 293g","COSI 300a","COSI 300b","COSI 320a","COSI 320b","COSI 400d","ANTH 138a","LING 130a","MATH 36a","MATH 39a","MATH 100a","MATH 100b","MATH 108b","PHIL 106b","PHYS 29a"]
 },
 
 {"name":"Computer Science",
@@ -55,7 +55,7 @@
   "description":"Math 36a can count for Math 8a. Only 2 elective can cross list, and no COSI course numbered 10 or lower can count towards the major. Also COSI 99d can not contribute towards the major.",
   "site_link":"http://www.brandeis.edu/computer-science/undergraduate/major.html",
   "core_courses":["COSI 11A", "COSI 12B", "COSI 21A", "COSI 29A", "COSI 131A", "COSI 130A", "COSI 121B", "MATH 8a", "MATH 10a"],
-"elective_courses": ["COSI 164a","CS 93a","CS 97a","CS 98a","COSI 98b","COSI 99d","COSI 133b","COSI 134a","COSI 135b","COSI 136a","COSI 137b","COSI 139a","COSI 140b","COSI 146a","COSI 147a","COSI 153a","COSI 155b","COSI 164a","COSI 165a","COSI 166b","COSI 167b","COSI 175a","COSI 177a","COSI 178a","COSI 180a","COSI 190a","COSI 200a","COSI 200b","COSI 210a","COSI 210b","COSI 215a","COSI 216a","COSI 217a","COSI 217b","COSI 220a","COSI 227b","COSI 228a","COSI 232f","COSI 233f","COSI 293g","COSI 300a","COSI 300b","COSI 320a","COSI 320b","COSI 400d","ANTH 138a","LING 130a","MATH 36a","MATH 39a","MATH 100a","MATH 100b","MATH 108b","PHIL 106b","PHYS 29a"]
+"elective_courses": ["COSI 164a","COSI 127b","CS 93a","CS 97a","CS 98a","COSI 98b","COSI 99d","COSI 133b","COSI 134a","COSI 135b","COSI 136a","COSI 137b","COSI 139a","COSI 140b","COSI 146a","COSI 147a","COSI 153a","COSI 155b","COSI 164a","COSI 165a","COSI 166b","COSI 167b","COSI 175a","COSI 177a","COSI 178a","COSI 180a","COSI 190a","COSI 200a","COSI 200b","COSI 210a","COSI 210b","COSI 215a","COSI 216a","COSI 217a","COSI 217b","COSI 220a","COSI 227b","COSI 228a","COSI 232f","COSI 233f","COSI 293g","COSI 300a","COSI 300b","COSI 320a","COSI 320b","COSI 400d","ANTH 138a","LING 130a","MATH 36a","MATH 39a","MATH 100a","MATH 100b","MATH 108b","PHIL 106b","PHYS 29a"]
 },
 
 {"name":"Mathematics",

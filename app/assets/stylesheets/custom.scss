@@ -5,6 +5,7 @@ $gray-medium-light: #eaeaea;
 $cyan: #58aed1;
 $gray-light: #f8f9fa;
 $navy_blue: #06115d;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -273,8 +274,8 @@ a:link {
 /* Dashboard */
 
 .circle {
-  width: 32px;
-  height: 32px;
+  width: 37px;
+  height: 37px;
   border: solid 2px black;
   border-radius: 50%;
   font-size: 11px;
@@ -283,7 +284,7 @@ a:link {
   line-height: 32px;
   text-align: center;
   background: #f6f7f9;
-  margin-left:14px;
+  margin-left:11px;
 }
 
 #calendar {
@@ -421,7 +422,7 @@ input:focus {
   box-shadow: 0 0 1pt 2pt $cyan;
 }
 
-#pe-req-drop {
+#pe-req-drop, #fl-req-drop {
   width: 70px;
 }
 
