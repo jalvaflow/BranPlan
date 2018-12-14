@@ -50,6 +50,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-controller-testing'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'simple_form'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
