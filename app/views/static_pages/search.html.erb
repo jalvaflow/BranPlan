@@ -10,10 +10,10 @@
         <%= form_tag(search_path, method: :get, :id => "search", remote: true) do %>
           <%= text_field_tag :query, params[:name], placeholder: "Name", :class => "search-inputs" %>
           <%= text_field_tag :code, params[:code], placeholder: "Code", :class => "search-inputs" %>
-          <%= text_field_tag :professor, params[:professor], placeholder: "Professor", :class => "search-inputs" %>
+          <!-- <%= text_field_tag :professor, params[:professor], placeholder: "Professor", :class => "search-inputs" %> -->
           <%= text_field_tag :description, params[:description], placeholder: "Description", :class => "search-inputs" %>
-          <%= select_tag :subject, options_for_select(@subjects.collect { |subject|
-              subject.name}), :include_blank => "Any", class: 'search-inputs' %>
+          <!-- <%= select_tag :subject, options_for_select(@subjects.collect { |subject|
+              subject.name}), :include_blank => "Any", class: 'search-inputs' %> -->
           <%= select_tag :term, options_for_select(@terms.collect { |term|
               term.name}, "Fall 2018"), class: 'search-inputs' %>
           <%= submit_tag "Search", :id => 'search-button', :class => 'btn btn-info', :style => "display: none;" %>
