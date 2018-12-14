@@ -15,7 +15,7 @@ describe EventsController do
 
   it "creates event" do
     expect {
-      post events_url, params: { event: { code: event.code, description: event.description, end_time: event.end_time, start_time: event.start_time, title: event.title } }
+      post events_url, params: { event: { code: event.code, description: event.description, end: event.end, start: event.start, title: event.title } }
     }.must_change "Event.count"
 
     must_redirect_to event_path(Event.last)
@@ -32,7 +32,7 @@ describe EventsController do
   end
 
   it "updates event" do
-    patch event_url(event), params: { event: { code: event.code, description: event.description, end_time: event.end_time, start_time: event.start_time, title: event.title } }
+    patch event_url(event), params: { event: { code: event.code, description: event.description, end: event.end, start: event.start, title: event.title } }
     must_redirect_to event_path(event)
   end
 
