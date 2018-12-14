@@ -273,6 +273,31 @@ a:link {
 
 /* Dashboard */
 
+#req-info {
+  height: 30px;
+  width: 30px;
+  margin-left: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  font-size: 20px;
+  padding-left: 8px !important;
+  line-height: 10px;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+  border: solid 1px black;
+  background-color: white;
+  -webkit-transform:scale(0.7);
+  -moz-transform:scale(0.7);
+  -ms-transform:scale(0.7);
+  transform:scale(0.7);
+}
+
+#req-info:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 2pt $cyan;
+}
+
 .circle {
   width: 37px;
   height: 37px;
