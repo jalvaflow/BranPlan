@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :section_times
   resources :events
   resources :enrollments
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
   resources :users do
     get :add_degree, on: :collection
     get :remove_degree, on: :collection
+    get :pe_req_check, on: :collection
     # or you may prefer to call this route on: :member
   end
 

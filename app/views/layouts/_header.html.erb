@@ -12,7 +12,7 @@
             <li class="nav-button"><%= link_to "Search", search_path %></li>
             <li class="nav-button"><%= link_to "Contact", contact_path, id: "contact" %></li>
             <li class="nav-button dropdown">
-              <%= link_to "Account", '#', 'data-toggle' => 'dropdown' %>
+              <%= link_to "Account", '#', 'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
               <ul class="dropdown-menu">
                 <!-- <li><%= link_to "Profile", current_user %></li> -->
                 <li><%= link_to "Academic Info", edit_user_path(current_user) %></li>

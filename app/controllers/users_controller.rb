@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def findCompletedUniReqs
     reqs_hash = Hash.new
-    reqs = ["UWS", "SN", "HU", "SS", "CA", "QR", "NW", "FL"]
+    reqs = ["UWS", "SN", "HU", "SS", "CA", "QR", "NW", "FL", "WI", "OC", "PE-1"]
     reqs.each do |req|
       reqs_hash[req] = 0
     end
@@ -62,9 +62,7 @@ class UsersController < ApplicationController
       course_reqs = CourseRequirement.where(course_id: course_id)
       # Why is c.requirement returning nil?
       course_reqs.each do |req|
-        puts req.inspect
         req_type = req[:requirement]
-        puts req_type
         if reqs.include? req_type
           reqs_hash[req_type] += 1
         end
@@ -159,6 +157,15 @@ class UsersController < ApplicationController
     degree_id = Degree.find_by(name: name, degree_type: type).id
     entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
     entry.destroy
+  end
+
+  def pe_req_check
+    user = current_user
+    if params[:pe_val] == "Yes"
+      current_user.update_attributes(pe_complete: params[:pe_val])
+    else
+      current_user.update_attributes(pe_complete: params[:pe_val])
+    end
   end
 
   def update

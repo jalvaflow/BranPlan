@@ -52,4 +52,28 @@
     <div class="circle">FL</div>
   <% end %>
 
+  <% if @user_uni_reqs["WI"] > 1 %>
+  <!-- Both WI completed. -->
+    <div class="circle" style="background-color: #2db934 !important;">WI (2)</div>
+  <% elsif @user_uni_reqs["WI"] == 1 && @user_uni_reqs["OC"] >= 1 %>
+  <!-- WI and an OC completed. -->
+    <div class="circle" style="background-color: #2db934 !important;">WI</div>
+    <div class="circle" style="background-color: #2db934 !important;">OC</div>
+  <% elsif @user_uni_reqs["WI"] == 1 && @user_uni_reqs["OC"] == 0 %>
+    <div class="circle" style="background-color: #2db934 !important;">WI</div>
+    <div class="circle">OC</div>
+  <% elsif @user_uni_reqs["WI"] == 0 && @user_uni_reqs["OC"] >= 1 %>
+    <div class="circle">WI</div>
+    <div class="circle" style="background-color: #2db934 !important;">OC</div>
+  <% else %>
+    <div class="circle">WI</div>
+    <div class="circle">OC</div>
+  <% end %>
+
+  <% if current_user.pe_complete == "Yes" %>
+    <div class="circle" style="background-color: #2db934 !important;">PE</div>
+  <% else %>
+    <div class="circle">PE</div>
+  <% end %>
+
 </div>

@@ -17,6 +17,15 @@
       <%= render 'users/edit/degree_multiselect' %>
     <br>
     <label>Course History</label>
+
+    <div class="row">
+      <p style="padding-right:1em;padding-left:2em;">Have you tested out of the PE requirement?</p>
+      <select id="pe-req-drop">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
     <div id="course_history"><%= render 'users/edit/course_history' %></div>
     <%= form_tag(edit_path, method: :get, :id => "history", remote: true) do %>
       <%= hidden_field_tag :id, current_user.id %>
@@ -35,5 +44,21 @@ $(function() {
   $("#history").keyup(function() {
     $.get(this.action, $(this).serialize(), null, "script");
   });
+
+  $('#pe-req-drop').change(function(){
+    $.ajax({
+      type:'GET',
+      url: "/users/pe_req_check",
+      data: {'pe_val' : $('#pe-req-drop').val() }
+    });
+  });
+
+  <% if current_user.pe_complete == "No" %>
+    document.getElementById("pe-req-drop").selectedIndex = 0;
+  <% else %>
+    document.getElementById("pe-req-drop").selectedIndex = 1;
+  <% end %>
 });
+
+
 </script>

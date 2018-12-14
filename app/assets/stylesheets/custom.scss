@@ -314,7 +314,7 @@ a:link {
 
 .bar-type {
   font-size: 15px !important;
-  color: $navy_blue;
+  color: black;
 }
 
 .cd-schedule .events .events-group > ul {
@@ -421,6 +421,10 @@ input:focus {
   box-shadow: 0 0 1pt 2pt $cyan;
 }
 
+#pe-req-drop {
+  width: 70px;
+}
+
 #search-button {
   border: solid 2px white;
   border-radius: 9px;
@@ -471,6 +475,7 @@ input:focus {
 
 #histroy-results-jumbo {
   border-radius: 20px;
+  background-color: #f6f7f9;
 }
 
 #history-results {
@@ -481,6 +486,7 @@ input:focus {
 #course-history-jumbo {
   margin-top: 15px;
   border-radius: 20px;
+  background-color: #f6f7f9;
 }
 
 #course-history {
@@ -613,16 +619,6 @@ input {
 
   .form-control {
     color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-
-  span {
-    margin-left: 20px;
-    font-weight: normal;
   }
 }
 
