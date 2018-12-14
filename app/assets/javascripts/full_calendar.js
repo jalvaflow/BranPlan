@@ -15,7 +15,6 @@ initialize_calendar = function() {
       events: '/events.json',
 
       select: function(start, end) {
-        console.log("What the fuck")
         $.getScript('/events/new', function() {
           $('#event_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
           date_range_picker();
