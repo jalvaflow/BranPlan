@@ -526,6 +526,16 @@ button:focus {
   background-color: #f6f7f9;
 }
 
+.calendar {
+  h2 {
+    color: black !important;
+    font-size: 20px !important;
+  }
+  .fc-content {
+    color: white !important;
+  }
+}
+
 #course-history {
   margin-top: -20px;
   margin-bottom: -20px;

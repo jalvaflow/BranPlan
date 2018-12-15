@@ -13,6 +13,7 @@ gem 'pry-byebug'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'minitest-rails'
+gem 'decisiontree'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # bcrypt for user passwords
