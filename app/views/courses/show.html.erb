@@ -73,7 +73,7 @@
                       </p>
                       <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
                         <td>
-                          <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, term_id: @term.id), :method => :put) %>
+                          <%= link_to('<button class="enroll-button btn btn-success">Add</button>'.html_safe, enroll_path(:course_id => @course.id, :section_id => section.id, :term_id => @term.id, :section_id_str => section.section_id), :method => :put) %>
                         </td>
                       <% else %>
                         <td>

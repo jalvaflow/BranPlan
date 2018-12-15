@@ -61,6 +61,13 @@ class CoursesController < ApplicationController
     t
   end
 
+  def convert_time_24(time, date)
+    t = DateTime.new(params[:year], params[:month], params[:day])
+    t = t.midnight
+    t = t + (time*60).minutes
+    t
+  end
+
   # GET /courses/new
   def new
     @course = Course.new

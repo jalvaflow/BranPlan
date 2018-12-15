@@ -482,7 +482,13 @@ input:focus {
   width: 80px;
   a {
     color: white;
+    border: none;
   }
+}
+
+.enroll-button:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 2pt $cyan;
 }
 
 #course-page {
