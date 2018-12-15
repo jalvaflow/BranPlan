@@ -486,6 +486,10 @@ input:focus {
   }
 }
 
+button:focus {
+    outline: none !important;
+}
+
 .enroll-button:focus {
   outline: none;
   box-shadow: 0 0 1pt 2pt $cyan;

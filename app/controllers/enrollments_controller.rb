@@ -22,25 +22,46 @@ class EnrollmentsController < ApplicationController
     # Add event to Event model
     course = Course.find_by(id: @course_id)
     section_time = SectionTime.where(section_id: params[:section_id_str])
-    if !section_time.nil? && course.term == "1183"
-      section_time.each do |section_t|
-        days_list = days_list_convert(section_t.days)
-        start_minutes = section_t.start
-        end_minutes = section_t.end
-        createCourseEvents(course, days_list, start_minutes, end_minutes)
+    if !section_time.nil?
+      if course.term == "1183"
+        section_time.each do |section_t|
+          days_list = days_list_convert(section_t.days)
+          start_minutes = section_t.start
+          end_minutes = section_t.end
+          createCourseEventsFall2018(course, days_list, start_minutes, end_minutes)
+        end
+      elsif course.term == "1191"
+        section_time.each do |section_t|
+          days_list = days_list_convert(section_t.days)
+          start_minutes = section_t.start
+          end_minutes = section_t.end
+          createCourseEventsSpring2019(course, days_list, start_minutes, end_minutes)
+        end
       end
     end
+
     flash[:success] = "Succesful enrollment in #{Course.find(@course_id).code}!"
     redirect_back(fallback_location: root_path)
   end
 
-  def createCourseEvents(course, days_list, start_time, end_time)
+  def createCourseEventsFall2018(course, days_list, start_time, end_time)
     date = DateTime.new(2018, 8, 29)
     104.times do |day_num|
       if days_list.include? date.strftime("%A")
         start_date = convert_time_24(start_time, date)
         end_date = convert_time_24(end_time, date)
-        puts start_date.to_s+"      "+end_date.to_s
+        Event.create(title: course.code, description: course.description, code: course.code, start: start_date, end: end_date)
+      end
+      date = date + 1.day
+    end
+  end
+
+  def createCourseEventsSpring2019(course, days_list, start_time, end_time)
+    date = DateTime.new(2019, 1, 15)
+    107.times do |day_num|
+      if days_list.include? date.strftime("%A")
+        start_date = convert_time_24(start_time, date)
+        end_date = convert_time_24(end_time, date)
         Event.create(title: course.code, description: course.description, code: course.code, start: start_date, end: end_date)
       end
       date = date + 1.day
