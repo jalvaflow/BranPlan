@@ -34,13 +34,8 @@
         </select>
       </div>
 
-    <div id="course_history"><%= render 'users/edit/course_history' %></div>
-    <%= form_tag(edit_path, method: :get, :id => "history", remote: true) do %>
-      <%= hidden_field_tag :id, current_user.id %>
-      <%= text_field_tag :history_code, params[:history_code], placeholder: "Code", :class => "search-inputs" %>
-      <%= submit_tag "Search", :id => 'code-search', :class => 'btn btn-info', :style => "display: none;" %>
-    <% end %>
-    <div id="history_results"><%= render 'users/edit/history_results' %></div>
+    <div id="course_codes"><%= render 'users/edit/course_code_search' %></div>
+
   </div>
 </div>
 

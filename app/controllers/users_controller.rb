@@ -112,31 +112,31 @@ class UsersController < ApplicationController
       @user_degrees.push(name)
     end
 
-    @course_codes = nil
-
-    @course_history = UserCourseHistory.where(user_id: @user.id).order(:course_code)
-    @course_history = @course_history.map {|x| x.course_code}
-    @course_history = @course_history.paginate(:per_page => 5, page: params[:page])
-
-    if !params[:history_code].nil?
-      @course_codes = Course.order(:code).uniq {|x| x.code}
-      @course_codes = @course_codes.map { |x| x.code }
-      @code = params[:history_code].upcase unless params[:history_code] == ""
-      search_results = []
-      @course_codes.each do |code|
-        if code.include? @code
-          search_results.push(code)
-        end
-      end
-      @course_codes = search_results
-    end
-
-    # @degrees = UserDegree.where(user_id: @user_id)
-
-    if !@course_codes.nil?
+    @course_codes = Course.order(:code).uniq {|x| x.code}
+    @course_history = UserCourseHistory.where(user_id: @user.id).map { |x| x.course_code }
+    if !@course_history.nil?
       @course_codes = @course_codes - @course_history
-      @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
     end
+
+    # if !params[:history_code].nil?
+    #   @course_codes = Course.order(:code).uniq {|x| x.code}
+    #   @course_codes = @course_codes.map { |x| x.code }
+    #   @code = params[:history_code].upcase unless params[:history_code] == ""
+    #   search_results = []
+    #   @course_codes.each do |code|
+    #     if code.include? @code
+    #       search_results.push(code)
+    #     end
+    #   end
+    #   @course_codes = search_results
+    # end
+    #
+    # # @degrees = UserDegree.where(user_id: @user_id)
+    #
+    # if !@course_codes.nil?
+    #   @course_codes = @course_codes - @course_history
+    #   @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
+    # end
   end
 
   def add_degree
@@ -153,6 +153,18 @@ class UsersController < ApplicationController
     name = degree.rpartition(' ').first
     type = degree.rpartition(' ').last[1...-1]
     puts name+" "+type
+    degree_id = Degree.find_by(name: name, degree_type: type).id
+    entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
+    entry.destroy
+  end
+
+  def add_course_code
+    code = params[:code]
+    UserCourseHistory.create(user_id: current_user.id, course_code: code)
+  end
+
+  def remove_course_code
+    code = params[:code]
     degree_id = Degree.find_by(name: name, degree_type: type).id
     entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
     entry.destroy

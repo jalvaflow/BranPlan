@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   resources :users do
     get :add_degree, on: :collection
     get :remove_degree, on: :collection
+    get :add_course_code, on: :collection
+    get :remove_course_code, on: :collection
     get :pe_req_check, on: :collection
     get :fl_req_check, on: :collection
     # or you may prefer to call this route on: :member

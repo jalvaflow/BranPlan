@@ -1,0 +1,31 @@
+<%= form_tag("", method: :get, :id => "course_code_search", remote: true) do %>
+  <%= hidden_field_tag :id, current_user.id %>
+  <%= select_tag :codes, options_for_select(@course_codes.map { |course| course.code }), multiple: "multiple" %>
+<% end %>
+
+<script>
+
+$('#codes').on("select2:select", function(e){
+  $.ajax({
+    type:'GET',
+    url: "/users/add_course_code",
+    data: {'code' : e.params.data.id }
+  });
+    }).trigger('change');
+
+$('#codes').on("select2:unselect", function(e){
+  $.ajax({
+    type:'GET',
+    url: "/users/remove_course_code",
+    data: {'code' : e.params.data.id }
+  });
+    }).trigger('change');
+
+$('#codes').select2({
+  placeholder: "Search course by course code."
+});
+
+var history_array = <%=raw @course_history%>;
+$("#codes").val(history_array).trigger('change');
+
+</script>
