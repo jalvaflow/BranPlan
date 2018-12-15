@@ -27,6 +27,9 @@ class StaticPagesController < ApplicationController
       end
       @courses = Course.where("lower(name) LIKE ? AND code LIKE ? AND description LIKE ? AND term LIKE ?", "%#{@query}%", "%#{@code}%", "%#{@description}%", "%#{@term}%")
     end
+    # After the fact, take into consideration course attributes not in the Course object (Ex. instructor, subject, etc)
+    # NOTE: Do params == nil check to save time efficently (will need many loops)
+    
     # Saves uniq course by code and paginates.
     @courses = @courses.order(:code)
     @courses = @courses.paginate(:per_page => 15, page: params[:page])

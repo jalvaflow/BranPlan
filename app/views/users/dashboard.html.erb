@@ -41,12 +41,11 @@
               <div class="progress-bar" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
             </div>
             <div class="row">
-            <p class="bar-type" style="padding-top:10px;"><strong>Graduation Requirements</strong></p>
-
-            <!-- Button trigger modal -->
+            <p class="bar-type" style="padding-top:10px;"><strong>Graduation Requirements
+              <!-- Button trigger modal -->
             <button id="req-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               i
-            </button>
+            </button></strong></p>
           </div>
 
             <%= render 'users/dashboard/dashboard_uni_reqs' %>

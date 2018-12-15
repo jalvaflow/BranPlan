@@ -274,10 +274,10 @@ a:link {
 /* Dashboard */
 
 #req-info {
+  position: sticky;
   height: 30px;
   width: 30px;
-  margin-left: 8px;
-  margin-top: 5px;
+  margin-left: 3px;
   border-radius: 50%;
   font-size: 20px;
   padding-left: 8px !important;
@@ -293,7 +293,7 @@ a:link {
   transform:scale(0.7);
 }
 
-#req-info:focus {
+#req-info:focus, #req-info:hover {
   outline: none;
   box-shadow: 0 0 1pt 2pt $cyan;
 }
