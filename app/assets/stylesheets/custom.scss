@@ -17,6 +17,14 @@ $navy_blue: #06115d;
   box-sizing: border-box;
 }
 /* universal */
+.brandeis_logo {
+  height:99%;
+  opacity: .2;
+  position: absolute;
+  margin-left: -190px;
+  z-index: -10000;
+}
+
 body {
   padding-top: 90px;
   font-family: Arial, Helvetica, sans-serif;
