@@ -11,13 +11,33 @@
     <tbody>
       <% @courses_fall_2018.each do |course| %>
         <tr>
-          <td><%= link_to course.name, course %></td>
+          <td><%= link_to course.name, "#", {'data-toggle' => "modal", 'data-target' => "#courseInfoModal"} %></td>
           <td><%= course.code %></td>
           <td><button id="fall_unenroll" class="enroll-button btn btn-danger"  data-course_id = <%= course.id %> data-term_id = 4>Remove</button></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="modal" id="courseInfoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -28,4 +48,8 @@ $('#fall_unenroll').on("click", function(){
       data: {'course_id' : this.dataset.course_id,'term_id' : this.dataset.term_id}
     });
       }).trigger('change');
+
+      $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
 </script>
