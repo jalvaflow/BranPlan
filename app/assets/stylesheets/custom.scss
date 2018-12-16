@@ -6,6 +6,11 @@ $cyan: #58aed1;
 $gray-light: #f8f9fa;
 $navy_blue: #06115d;
 
+.jumbotron {
+  border: solid 4px #2865a8;
+  border-radius: 40px !important;
+}
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -229,6 +234,7 @@ a:link {
   }
   #contact-jumbo {
     background-color: $gray-light;
+    border-radius: 40px;
   }
   #feedback-form {
     background-color: $cyan;
@@ -314,7 +320,6 @@ a:link {
 .dash-panels {
   background-color: $gray-light;
   margin-top: 20px;
-  border-radius: 40px;
   height: 550px;
   h3 {
     font-size: 30px;
@@ -407,7 +412,6 @@ only screen and (min-device-pixel-ratio: 1.5){
 }
 
 .search-page {
-  background-color: $navy_blue;
   margin-top: -20px;
   margin-bottom: -20px;
   padding-top: 25px;
@@ -417,7 +421,6 @@ only screen and (min-device-pixel-ratio: 1.5){
 #filters {
   margin-left:20px;
   border-radius: 30px;
-  border: solid 5px white;
   height: 100%;
 }
 
@@ -425,7 +428,6 @@ only screen and (min-device-pixel-ratio: 1.5){
   margin-right:20px;
   border-radius: 30px;
   margin-bottom: -40px;
-  border: solid 5px white;
   height: 100%;
 }
 
