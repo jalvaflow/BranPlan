@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :degrees
   resources :section_times
   resources :events
-  resources :enrollments
+  resources :enrollments do
+    post :enroll, on: :collection
+    post :unenroll, on: :collection
+    # or you may prefer to call this route on: :member
+  end
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

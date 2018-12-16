@@ -13,9 +13,19 @@
         <tr>
           <td><%= link_to course.name, course %></td>
           <td><%= course.code %></td>
-          <td><%= link_to '<button class="enroll-button btn btn-danger">Remove</button>'.html_safe, unenroll_path(:course_id => course.id, :term_id => 5), :method => :put, remote: true %></td>
+          <td><button id="spring_unenroll" class="enroll-button btn btn-danger"  data-course_id = <%= course.id %> data-term_id = 5>Remove</button></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<script>
+$('#spring_unenroll').on("click", function(){
+    $.ajax({
+      type:'POST',
+      url: "/enrollments/unenroll",
+      data: {'course_id' : this.dataset.course_id,'term_id' : this.dataset.term_id}
+    });
+      }).trigger('change');
+</script>

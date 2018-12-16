@@ -645,6 +645,11 @@ aside {
 
 /* forms */
 
+span.select2-selection--multiple {
+  border-color: lightgray;
+  border-radius: 15px !important;
+}
+
 .uneditable-input,
 input,
 select,
