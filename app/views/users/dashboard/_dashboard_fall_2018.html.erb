@@ -11,8 +11,7 @@
     <tbody>
       <% @courses_fall_2018.each do |course| %>
         <tr>
-          <td><%= link_to course.name, course %></td>
-          <!-- , {'data-toggle' => "modal", 'data-target' => "#courseInfoModal"} -->
+          <td><%= link_to course.name, "#", {'data-toggle' => "modal", 'data-target' => "#courseInfoModal"} %></td>
           <td><%= course.code %></td>
           <td><button id="fall_unenroll" class="enroll-button btn btn-danger"  data-course_id = <%= course.id %> data-term_id = 4>Remove</button></td>
         </tr>
