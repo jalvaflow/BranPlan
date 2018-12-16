@@ -29,14 +29,6 @@ textarea {
   text-align: center;
 }
 /* typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-}
 
 h2 {
   font-size: 1.2em;
@@ -495,10 +487,22 @@ button:focus {
   box-shadow: 0 0 1pt 2pt $cyan;
 }
 
+.breadcrumb {
+  font-size: 18px;
+}
+
 #course-page {
   h1 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
+    margin-left:15px;
+  }
+  h3 {
+    margin-left:30px;
+    font-size:25px;
+    font-weight:bold;
+    color:#4d4dff;
+    line-height: 35px;
   }
   #section-info {
     font-size: 18px;

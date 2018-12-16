@@ -15,6 +15,9 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @sections = Section.where(course: @course.course_id)
     @term = Term.find_by(term_id: @course.term)
+    course_reqs = CourseRequirement.where(course_id: @course.course_id)
+    course_reqs = course_reqs.map {|req| req[:requirement]}
+    @course_uni_reqs = course_reqs.join(" ")
     @professors = {}
     @days = {}
     @times = {}

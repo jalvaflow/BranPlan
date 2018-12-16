@@ -12,11 +12,9 @@
           (<%= @course.code %>)</li>
       </ol>
     </nav>
-    <h1>
-      <%= @course.name %>
-      •
-      <%= @course.code %>
-    </h1>
+    <div class="row">
+    <h1><%= @course.name %> • <%= @course.code %></h1> <h3><%= @course_uni_reqs %></h3>
+    </div>
     <br>
     <p style="margin-bottom: -10px;">
       <%= @course.description %>
