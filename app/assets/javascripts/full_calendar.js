@@ -30,7 +30,7 @@ initialize_calendar = function() {
           event: {
             id: event.id,
             start: event.start.format(),
-            end: event.end.format()
+            end: event.end.format(),
           }
         };
         $.ajax({
