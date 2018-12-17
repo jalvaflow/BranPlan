@@ -46,7 +46,7 @@ class EnrollmentsController < ApplicationController
 
   def createCourseEventsFall2018(course, days_list, start_time, end_time)
     date = DateTime.new(2018, 8, 29)
-    104.times do |day_num|
+    105.times do |day_num|
       if days_list.include? date.strftime("%A")
         start_date = convert_time_24(start_time, date)
         end_date = convert_time_24(end_time, date)
@@ -58,7 +58,7 @@ class EnrollmentsController < ApplicationController
 
   def createCourseEventsSpring2019(course, days_list, start_time, end_time)
     date = DateTime.new(2019, 1, 15)
-    107.times do |day_num|
+    108.times do |day_num|
       if days_list.include? date.strftime("%A")
         start_date = convert_time_24(start_time, date)
         end_date = convert_time_24(end_time, date)
