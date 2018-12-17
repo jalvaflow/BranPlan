@@ -28,6 +28,7 @@ $navy_blue: #06115d;
 body {
   padding-top: 90px;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: $navy_blue
 }
 
 section {
@@ -227,6 +228,9 @@ a:link {
 }
 
 #contact-us {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 1px;
   h1 {
     font-size: 40px;
     color: $navy_blue;
@@ -246,6 +250,7 @@ a:link {
   }
   #feedback-form {
     background-color: $cyan;
+    margin-bottom: -10px !important;
     #send-button {
       border: solid 2px white;
       border-radius: 9px;
@@ -329,6 +334,7 @@ a:link {
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 20px;
+  margin-bottom: -10px;
   h1 {
     font-size: 40px;
     margin-top: -5px !important;
@@ -493,6 +499,7 @@ input:focus {
 
 .enroll-button {
   border-radius: 10px;
+  border: solid 1px white;
   width: 80px;
   height: 35px;
   margin-top: -5px;
@@ -602,13 +609,27 @@ button:focus {
   }
 }
 
+/* Academic Info */
+
+.academic-info {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  h1 {
+    font-size: 35px;
+    margin-top: -5px !important;
+    margin-bottom: -5px !important;
+  }
+}
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $gray-darker;
+  color: white;
 
   a {
     color: $gray;

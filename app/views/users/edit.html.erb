@@ -2,6 +2,7 @@
 <% flash.each do |message_type, message| %>
   <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
 <% end %>
+<div class="academic-info jumbotron">
 <h1 class="center">Academic Information</h1>
 <br>
 <div class="row">
@@ -9,25 +10,25 @@
     <%= form_for @user, :html => {:id => "credits-form"}, remote: true do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :credits, "University Credits", :style => "padding-bottom: 10px;" %>
+      <%= f.label :credits, "University Credits", :style => "padding-bottom: 10px;font-size:16px;" %>
       <%= f.number_field :credits, class: 'search-inputs' %>
       <%= f.submit "Submit", :style => "display:none;" %>
     <% end %>
-    <label style="padding-bottom: 10px;">Degrees</label>
+    <label style="padding-bottom: 10px;font-size:16px;">Degrees</label>
       <%= render 'users/edit/degree_multiselect' %>
     <br>
-    <label>Course History</label>
+    <label style="font-size:16px;">Course History</label>
 
-      <p style="padding-right:1em;padding-left:2em;">Indicate if you have tested out of the following graduation requirements:</p>
+      <p style="padding-right:1em;padding-left:2em;font-size:15px;">Indicate if you have tested out of the following graduation requirements:</p>
       <div class="row">
-        <p style="padding-right:1em;padding-left:5em;">PE (Physical Education)</p>
+        <p style="padding-right:1em;padding-left:5em;font-size:15px;">PE (Physical Education)</p>
         <select id="pe-req-drop">
           <option value="No">No</option>
           <option value="Yes">Yes</option>
         </select>
       </div>
       <div class="row">
-        <p style="padding-right:1.5em;padding-left:5em;">FL (Foreign Language)</p>
+        <p style="padding-right:1.5em;padding-left:5em;font-size:15px;">FL (Foreign Language)</p>
         <select id="fl-req-drop">
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -37,6 +38,7 @@
     <div id="course_codes"><%= render 'users/edit/course_code_search' %></div>
 
   </div>
+</div>
 </div>
 
 <script>
