@@ -116,9 +116,6 @@ class UsersController < ApplicationController
 
     @course_codes = Course.all.sort_by { |c| [c.code.split(" ")[0], c.code.split(" ")[1].length, c.code.split(" ")[1]] }.uniq {|x| x.code}
     @course_history = UserCourseHistory.where(user_id: @user.id).map { |x| x.course_code }
-    if !@course_history.nil?
-      @course_codes = @course_codes - @course_history
-    end
   end
 
   def add_degree
@@ -147,8 +144,7 @@ class UsersController < ApplicationController
 
   def remove_course_code
     code = params[:code]
-    degree_id = Degree.find_by(name: name, degree_type: type).id
-    entry = UserDegree.find_by(user_id: current_user.id, degree_id: degree_id)
+    entry = UserCourseHistory.find_by(user_id: current_user.id, course_code: code)
     entry.destroy
   end
 
