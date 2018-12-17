@@ -1,6 +1,7 @@
 <% provide(:title, current_user.name.split(" ")[0].to_s+"'s Dashboard") %>
 
-  <div class="container">
+  <div class="jumbotron dash-page">
+    <div class="container">
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
     <% end %>
@@ -41,7 +42,7 @@
               <div class="progress-bar" role="progressbar" style="width: <%= @credits_percent %>%" aria-valuenow="<%= @credits_percent %>" aria-valuemin="0" aria-valuemax="100"><%= @credits_percent %>%</div>
             </div>
             <div class="row">
-            <p class="bar-type" style="padding-top:10px;"><strong>Graduation Requirements
+            <p class="bar-type" style="padding-top:10px;margin-left:15px;"><strong>Graduation Requirements
               <!-- Button trigger modal -->
             <button id="req-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               i
@@ -85,6 +86,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 <script>
