@@ -33,11 +33,11 @@
                 <%= section.section %></p>
                 <% if Enrollment.where(user_id: current_user.id, course_id: @course.id, section_id: section.id, term_id: @term.id).length == 0 %>
                   <td>
-                    <button id="show_enroll" class="enroll-button btn btn-success" data-course_id = <%= @course.id %> data-section_id = <%= section.id %> data-term_id = <%= @term.id %> data-section_id_str = <%= section.section_id %>>Add</button>
+                    <button class="enroll enroll-button btn btn-success" data-course_id = <%= @course.id %> data-section_id = <%= section.id %> data-term_id = <%= @term.id %> data-section_id_str = <%= section.section_id %>>Add</button>
                   </td>
                 <% else %>
                   <td>
-                    <button id="show_unenroll" class="enroll-button btn btn-danger"  data-course_id = <%= @course.id %> data-section_id = <%= section.id %> data-term_id = <%= @term.id %> data-section_id_str = <%= section.section_id %>>Remove</button>
+                    <button class="unenroll enroll-button btn btn-danger"  data-course_id = <%= @course.id %> data-section_id = <%= section.id %> data-term_id = <%= @term.id %> data-section_id_str = <%= section.section_id %>>Remove</button>
                   </td>
                 <% end %>
               </div>
@@ -90,7 +90,7 @@
             </div>
 
             <script>
-            $('#show_enroll').on("click", function(){
+            $('.enroll').on("click", function(){
               $.ajax({
                 type:'POST',
                 url: "/enrollments/enroll",
@@ -98,7 +98,7 @@
               });
                 }).trigger('change');
 
-            $('#show_unenroll').on("click", function(){
+            $('#.unenroll').on("click", function(){
                 $.ajax({
                   type:'POST',
                   url: "/enrollments/unenroll",

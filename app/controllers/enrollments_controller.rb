@@ -62,7 +62,7 @@ class EnrollmentsController < ApplicationController
       if days_list.include? date.strftime("%A")
         start_date = convert_time_24(start_time, date)
         end_date = convert_time_24(end_time, date)
-        Event.create(title: course.code, description: course.description, code: course.code, start: start_date, end: end_date)
+        Event.create(title: course.code, description: course.description, code: course.code, start: start_date, end: end_date, user_id: current_user.id)
       end
       date = date + 1.day
     end
