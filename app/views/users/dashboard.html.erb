@@ -1,10 +1,9 @@
 <% provide(:title, current_user.name.split(" ")[0].to_s+"'s Dashboard") %>
-
+<% flash.each do |message_type, message| %>
+  <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
+<% end %>
   <div class="jumbotron dash-page">
     <div class="container">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type} container") %>
-    <% end %>
     <h1 class="center"><%= current_user.name.split(" ")[0] %>'s Dashboard</h1>
     <br>
     <div class="row">
