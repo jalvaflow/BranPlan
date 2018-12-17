@@ -30,12 +30,14 @@ class UsersController < ApplicationController
           course = Course.find(e.course_id)
           @courses_fall_2018.push(course)
         end
+        @courses_fall_2018 = @courses_fall_2018.sort_by { |c| [c.code.split(" ")[0], c.code.split(" ")[1].length, c.code.split(" ")[1]] }
       end
       if enrollment_spring_2019.count != 0
         enrollment_spring_2019.each do |e|
           course = Course.find(e.course_id)
           @courses_spring_2019.push(course)
         end
+        @courses_spring_2019 = @courses_spring_2019.sort_by { |c| [c.code.split(" ")[0], c.code.split(" ")[1].length, c.code.split(" ")[1]] }
       end
     else
       redirect_to root_url
@@ -112,31 +114,11 @@ class UsersController < ApplicationController
       @user_degrees.push(name)
     end
 
-    @course_codes = Course.order(:code).uniq {|x| x.code}
+    @course_codes = Course.all.sort_by { |c| [c.code.split(" ")[0], c.code.split(" ")[1].length, c.code.split(" ")[1]] }.uniq {|x| x.code}
     @course_history = UserCourseHistory.where(user_id: @user.id).map { |x| x.course_code }
     if !@course_history.nil?
       @course_codes = @course_codes - @course_history
     end
-
-    # if !params[:history_code].nil?
-    #   @course_codes = Course.order(:code).uniq {|x| x.code}
-    #   @course_codes = @course_codes.map { |x| x.code }
-    #   @code = params[:history_code].upcase unless params[:history_code] == ""
-    #   search_results = []
-    #   @course_codes.each do |code|
-    #     if code.include? @code
-    #       search_results.push(code)
-    #     end
-    #   end
-    #   @course_codes = search_results
-    # end
-    #
-    # # @degrees = UserDegree.where(user_id: @user_id)
-    #
-    # if !@course_codes.nil?
-    #   @course_codes = @course_codes - @course_history
-    #   @course_codes = @course_codes.paginate(:per_page => 3, page: params[:page])
-    # end
   end
 
   def add_degree

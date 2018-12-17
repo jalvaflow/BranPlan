@@ -29,9 +29,9 @@ class StaticPagesController < ApplicationController
     end
     # After the fact, take into consideration course attributes not in the Course object (Ex. instructor, subject, etc)
     # NOTE: Do params == nil check to save time efficently (will need many loops)
-    
+
     # Saves uniq course by code and paginates.
-    @courses = @courses.order(:code)
+    @courses = @courses.sort_by { |c| [c.code.split(" ")[0], c.code.split(" ")[1].length, c.code.split(" ")[1]] }
     @courses = @courses.paginate(:per_page => 15, page: params[:page])
   end
 end
