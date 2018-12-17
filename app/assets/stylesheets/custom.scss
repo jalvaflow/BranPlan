@@ -29,7 +29,17 @@ $navy_blue: #06115d;
 body {
   padding-top: 90px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: $navy_blue
+}
+
+body {
+  background-color: $navy_blue;
+}
+
+body#course_show {
+  background-color: white;
+  .footer-style {
+    color: black !important;
+  }
 }
 
 section {
@@ -136,15 +146,9 @@ a:link {
 }
 
 .feature-img {
-  height: 200px;
-  border-radius: 50%;
-  margin-top: -20px;
-  margin-bottom: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  border: solid 4px $navy_blue;
+  height: 150px;
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
 }
 
 .card-text {
@@ -232,6 +236,7 @@ a:link {
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 1px;
+  margin-bottom: -30px;
   h1 {
     font-size: 40px;
     color: $navy_blue;
@@ -626,12 +631,11 @@ button:focus {
 
 /* footer */
 
-footer {
+.footer-style {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: white;
-
   a {
     color: $gray;
 
