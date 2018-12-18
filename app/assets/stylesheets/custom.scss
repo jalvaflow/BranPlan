@@ -432,6 +432,10 @@ only screen and (min-device-pixel-ratio: 1.5){
 
 }
 
+.active_code {
+  display: inherit !important;
+}
+
 .search-page {
   margin-top: -20px;
   margin-bottom: -20px;
@@ -479,6 +483,11 @@ input:focus {
   width: 100px;
 }
 
+#suggest-button:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 2pt $cyan;
+}
+
 #course-results {
   margin-top: -25px;
   margin-bottom: -20px;
@@ -506,7 +515,7 @@ input:focus {
 }
 
 button:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .enroll-button:focus {

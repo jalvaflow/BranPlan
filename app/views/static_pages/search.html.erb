@@ -23,6 +23,7 @@
           <!-- Link to prediction algo -->
           <%= submit_tag "Suggest", :id => 'suggest-button', :class => "search-inputs btn btn-warning" %>
         </div>
+        <p id="suggest_code" style="display:none;text-align:center;"><%= @suggest_code %><p>
     </div>
   </div>
   <div class="col-8">
@@ -38,6 +39,10 @@ $(function() {
   });
   $("#search").change(function() {
     $.get(this.action, $(this).serialize(), null, "script");
+  });
+
+  $("#suggest-button").on("click", function(){
+    $("#suggest_code").toggle();
   });
 });
 </script>
