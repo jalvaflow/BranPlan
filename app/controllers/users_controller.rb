@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   def findCompletedUniReqs
     reqs_hash = Hash.new
-    reqs = ["UWS", "SN", "HU", "SS", "CA", "QR", "NW", "FL", "WI", "OC", "PE-1"]
+    reqs = ["UWS", "SN", "HUM", "SS", "CA", "QR", "NW", "FL", "WI", "OC", "PE-1"]
     reqs.each do |req|
       reqs_hash[req] = 0
     end
