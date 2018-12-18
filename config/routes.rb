@@ -26,9 +26,6 @@ Rails.application.routes.draw do
   resources :terms
   resources :instructors
   resources :requirements
-  resources :static_pages do
-    get :search, on: :collection
-  end
 
   root 'static_pages#home'
 

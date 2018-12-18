@@ -70,7 +70,6 @@ class UsersController < ApplicationController
         end
       end
     end
-    puts reqs_hash
     reqs_hash
   end
 
