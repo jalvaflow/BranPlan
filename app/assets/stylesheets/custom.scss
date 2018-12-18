@@ -170,13 +170,9 @@ a:link {
 }
 
 .quote {
-  font-size: 30px;
+  font-size: 32px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   font-style: italic;
-  color: $navy_blue;
-}
-
-.quote-author {
-  font-size: 20px;
   color: $navy_blue;
 }
 
@@ -264,7 +260,9 @@ a:link {
 
 #carouselQuotes {
   border-top: solid 3px white;
-  margin-bottom: -20px;
+  border-bottom: solid 3px white;
+  margin-top: -20px;
+  margin-bottom: -10px;
 }
 
 .carousel-control-prev-icon {
@@ -277,11 +275,7 @@ a:link {
 
 .quote-block {
   width: 200px;
-  p {
-    text-align: center;
-    vertical-align: middle;
-    line-height: 150px;
-  }
+  text-align: center;
 }
 
 /* Dashboard */

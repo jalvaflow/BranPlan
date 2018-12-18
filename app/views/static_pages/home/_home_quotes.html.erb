@@ -1,24 +1,24 @@
-<div id="carouselQuotes" class="carousel slide" data-ride="carousel">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+
+<div id="carouselQuotes" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag("quote-banner.jpg", :class => "d-block w-100", :alt => "First slide") %>
       <div class="carousel-caption d-none d-md-block">
-        <h5 class="quote">"This app is dope."</h5>
-        <p class="quote-author">- Joshua Alvarado</p>
+        <h5 class="quote">Autonomous Robotics Lab (COSI 119A) is now being offered in Spring 2019</h5>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag("quote-banner.jpg", :class => "d-block w-100", :alt => "Second slide") %>
       <div class="carousel-caption d-none d-md-block">
-        <h5 class="quote">"This app is cool."</h5>
-        <p class="quote-author">- Simon Fekete</p>
+        <h5 class="quote">New supported major: Applied Mathematics<br><a href="http://www.brandeis.edu/mathematics/undergraduate">http://www.brandeis.edu/mathematics/undergraduate</a></h5>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag("quote-banner.jpg", :class => "d-block w-100", :alt => "Third slide") %>
       <div class="carousel-caption d-none d-md-block">
-        <h5 class="quote">"This app is great."</h5>
-        <p class="quote-author">- Runjie Lu</p>
+        <h5 class="quote">JBS applications are now being accepted!<br><a href="http://www.brandeis.edu/jbs/apply/index.html">http://www.brandeis.edu/jbs/apply/index.html</a></h5>
       </div>
     </div>
   </div>
@@ -31,3 +31,9 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<script>
+$(function(){
+  $('#carouselQuotes').carousel();
+});
+</script>
