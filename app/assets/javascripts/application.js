@@ -21,6 +21,3 @@
 //= require fullcalendar
 //= require daterangepicker
 //= require_tree .
-
-
-ScrollReveal().reveal('.hideme');
