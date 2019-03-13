@@ -9,7 +9,6 @@ gem 'activerecord-import'
 
 gem "omniauth-google-oauth2"
 
-gem 'pry-byebug'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'minitest-rails'
